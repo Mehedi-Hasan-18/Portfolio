@@ -1,5 +1,4 @@
 import image from "../../assets/Profile Photo.png";
-import Typewriter from "typewriter-effect";
 import Project from "../Project";
 import Skills from "../Skills";
 import Education from "../Education";
@@ -15,23 +14,7 @@ const Home = () => {
             style={{ fontFamily: "'Bebas Neue'," }}
             className="font-bold text-6xl md:text-7xl mt-20"
           >
-            Hi, I'm <span className="text-blue-200">MEHEDI HASAN</span> A
-            <div>
-              <Typewriter
-                options={{
-                  strings: [
-                    '<span class="font-bold text-5xl text-amber-400">Full-Stack Developer</span>',
-                    '<span class="font-bold text-6xl text-amber-400"">Problem Solver</span>',
-                    '<span class="font-bold text-6xl text-amber-400"">Youtuber</span>',
-                  ],
-                  autoStart: true,
-                  loop: true,
-                  delay: 60,
-                  deleteSpeed: 30,
-                  cursor: " ",
-                }}
-              />
-            </div>
+            Hi, I'm <span className="text-blue-200">MEHEDI HASAN</span> A <br /><span className="text-amber-300 text-6xl">Full-Stack Devloper</span>
           </h1>
         </div>
 
