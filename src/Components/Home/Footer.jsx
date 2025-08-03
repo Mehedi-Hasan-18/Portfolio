@@ -30,18 +30,6 @@ const Footer = () => {
     { name: "Email", href: "mailto:mdmehedihasanroby@gmail.com", icon: Mail },
   ];
 
-  const quickLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
-  ];
-
-  const services = [
-    { name: "Full-Stack Devlopment", href: "#" },
-    { name: "Backend Development", href: "#" },
-    { name: "Frontend Devlopment", href: "#" },
-  ];
 
   const handleNewsletter = () => {
     // Handle newsletter signup
@@ -55,11 +43,11 @@ const Footer = () => {
 
   return (
     <footer className="relative border-t border-gray-800  text-white overflow-hidden">
-      <div className="relative max-w-7xl mx-auto py-12">
+      <div className="relative md:max-w-7xl w-11/12 mx-auto py-12">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3  gap-15 mb-12">
           {/* Brand Section */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-2">
             <div className="mb-6">
               <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
                 Mehedi Hasan
@@ -87,43 +75,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6 text-white">
-              Quick Links
-            </h4>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors duration-300 text-sm flex items-center group"
-                  >
-                    {link.name}
-                    <ExternalLink className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6 text-white">Services</h4>
-            <ul className="space-y-3">
-              {services.map((service) => (
-                <li key={service.name}>
-                  <a
-                    href={service.href}
-                    className="text-gray-400 hover:text-white transition-colors duration-300 text-sm flex items-center group"
-                  >
-                    {service.name}
-                    <ExternalLink className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
 
           {/* Newsletter */}
           <div>
@@ -181,13 +132,13 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 pt-6">
           <div className="flex flex-col sm:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm flex items-center mb-2 sm:mb-0">
-              © 2025 Portfolio. Made with
+            <span className="text-gray-400 text-sm flex items-center mb-2 sm:mb-0">
+              © Made with
               <Heart className="w-4 h-4 mx-1 text-red-500 animate-pulse" />
               and
               <Coffee className="w-4 h-4 mx-1 text-yellow-500" />
               in Cyberjaya.
-            </p>
+            </span>
             <div className="flex space-x-6 text-sm">
               <a
                 href="#"

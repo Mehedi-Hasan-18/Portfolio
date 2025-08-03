@@ -15,7 +15,7 @@ const Skills = () => {
     { name: "Firebase", level: 90 },
   ];
   return (
-    <section className="max-w-7xl mx-auto px-4 py-12 mt-10">
+    <section className="md:max-w-7xl md:mx-auto md:px-4 md:py-12 mt-10">
       <div
         className="group rounded-2xl border border-white/50 bg-gray-900/60 p-6 backdrop-blur
                          transition-transform duration-300 hover:-translate-y-1 hover:border-white/50 hover:shadow-xl"

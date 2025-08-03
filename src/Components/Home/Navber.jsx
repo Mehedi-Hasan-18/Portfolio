@@ -15,8 +15,8 @@ const Navber = () => {
 
   return (
     <nav className=" text-white backdrop-blur-lg border-b border-gray-200/50 shadow-lg">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center h-16">
+      <div className="md:max-w-7xl md:mx-auto w-11/12 mx-auto">
+        <div className="flex justify-between items-center h-16 ">
           {/* Logo/Brand */}
           <div className="flex-shrink-0">
             <a
@@ -46,7 +46,7 @@ const Navber = () => {
           {/* CTA Button (Desktop) */}
           <div className="hidden md:block">
             <a
-              href="https://drive.google.com/file/d/1yxUwZVG8SKqqI6Xe3A5hJSTIZd07Imkx/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1yxUwZVG8SKqqI6Xe3A5hJSTIZd07Imkx/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105"

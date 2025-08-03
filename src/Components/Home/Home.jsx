@@ -6,15 +6,16 @@ import ECA from "../ECA";
 
 const Home = () => {
   return (
-    <div className="relative text-white m-10">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-4 sm:grid-cols-1 gap-15 px-15">
+    <div className="relative text-white m-3 md:m-10">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-4 sm:grid-cols-1 gap-15 md:px-15">
         {/* Left Side: Text */}
-        <div className="col-span-2 flex items-center">
+        <div className="col-span-2 flex items-center mx-auto">
           <h1
             style={{ fontFamily: "'Bebas Neue'," }}
-            className="font-bold text-6xl md:text-7xl mt-20"
+            className="font-bold text-3xl md:text-6xl lg:mt-20 text-center md:text-start"
           >
-            Hi, I'm <span className="text-blue-200">MEHEDI HASAN</span> A <br /><span className="text-amber-300 text-6xl">Full-Stack Devloper</span>
+            Hi, I'm <span className="text-blue-200">MEHEDI HASAN</span> A <br />
+            <span className="text-amber-300">Full-Stack Devloper</span>
           </h1>
         </div>
 
@@ -28,7 +29,7 @@ const Home = () => {
         </div>
       </div>
       <Project></Project>
-      <Skills className="mt-5"></Skills>
+      <Skills className="md:mt-5"></Skills>
       <Education></Education>
       <ECA></ECA>
     </div>

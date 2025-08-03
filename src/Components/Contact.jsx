@@ -59,7 +59,7 @@ const Contact = () => {
 
   return (
     <section className=" text-gray-200">
-      <div className="max-w-6xl mx-auto px-6 py-12">
+      <div className="md:max-w-6xl md:mx-auto md:px-6 md:py-12 m-4">
         <header className="text-center mb-10">
           <h1 className="text-3xl md:text-4xl font-bold text-blue-600">
             Contact
@@ -69,7 +69,7 @@ const Contact = () => {
           </p>
         </header>
 
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-8 grid-cols-1 md:grid-cols-2">
           {/* Card: Direct Contact */}
           <div
             className="relative rounded-2xl bg-gray-900/70 border border-gray-800 p-6 backdrop-blur
@@ -85,13 +85,12 @@ const Contact = () => {
               {/* Email */}
               <div className="flex items-center hover:border-white/50 transition justify-between gap-3 rounded-xl border border-gray-800 bg-gray-950/60 p-4">
                 <div className="min-w-0">
-                  <p className="text-sm text-gray-400">Email</p>
+                  <p className="font-bold text-gray-400">Email</p>
                   <a
                     href={`mailto:${email}`}
                     className="truncate font-medium text-gray-200 hover:text-blue-400 transition"
                     title={email}
                   >
-                    {email}
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
@@ -114,13 +113,12 @@ const Contact = () => {
               {/* Phone */}
               <div className="flex items-center justify-between gap-3 rounded-xl border border-gray-800 bg-gray-950/60 p-4 hover:border-white/50 transition">
                 <div className="min-w-0 ">
-                  <p className="text-sm text-gray-400">Phone</p>
+                  <p className="font-bold text-gray-400">Phone</p>
                   <a
                     href={`tel:${phone.replace(/\s+/g, "")}`}
                     className="truncate font-medium text-gray-200 hover:text-green-400 transition"
                     title={phone}
                   >
-                    {phone}
                   </a>
                 </div>
                 <div className="flex items-center gap-2">

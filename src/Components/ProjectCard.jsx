@@ -1,16 +1,21 @@
 import React from "react";
 
 const ProjectCard = ({ title, image, description, tags, liveUrl, codeUrl }) => {
+  const handleCard = () =>{
+    console.log("hello")
+    window.open(liveUrl, "_blank");
+  }
   return (
-    <article
-      className="mt-10 group relative flex flex-col justify-between h-full rounded-2xl transition-transform hover:-translate-y-1"
+    <div
+      onClick={handleCard}
+      className="mt-10 w-full group relative flex flex-col justify-between md:h-[760px] rounded-2xl transition-transform hover:-translate-y-1"
       aria-label={title}
     >
       {/* Gradient ring */}
       <div className="absolute -inset-px rounded-2xl bg-gradient-to-r from-indigo-500/40 to-emerald-500/40 blur opacity-0 transition-opacity hover:border-white/50 hover:shadow-xl pointer-events-none" />
 
       {/* Card body */}
-      <div className="relative rounded-2xl border border-white/50 bg-gray-900/60 backdrop-blur p-5 shadow-lg">
+      <div className="relative rounded-2xl border border-white/50 bg-gray-900/60 backdrop-blur p-5 shadow-lg h-full">
         {/* Image */}
         <div className="relative overflow-hidden rounded-xl aspect-[16/9] mb-4">
           <img
@@ -24,17 +29,17 @@ const ProjectCard = ({ title, image, description, tags, liveUrl, codeUrl }) => {
         </div>
 
         {/* Title */}
-        <h3 className="text-xl">
+        <h3 className="lg:text-xl">
           <span className=" text-amber-300 font-bold">
             {title}
           </span>
         </h3>
 
         {/* Description */}
-        <p className="mt-2 text-white/80">{description}</p>
+        <p className="mt-2 text-white/80 text-xs md:text-sm lg:text-xl">{description.slice(0,300)+"..."}</p>
 
         {/* Tags */}
-        <div className="mt-3 flex flex-wrap gap-2">
+        <div className="mt-3 text-xs md:text-sm lg:text-xl flex flex-wrap gap-2">
           {tags?.map((t) => (
             <span
               key={t}
@@ -69,7 +74,7 @@ const ProjectCard = ({ title, image, description, tags, liveUrl, codeUrl }) => {
           )}
         </div>
       </div>
-    </article>
+    </div>
   );
 };
 
