@@ -6,9 +6,9 @@ const Navber = () => {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
+    { name: "About", href: "about" },
     { name: "Projects", href: "https://github.com/Mehedi-Hasan-18?tab=repositories" },
-    { name: "Contact", href: "/contact" },
+    { name: "Contact", href: "contact" },
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
