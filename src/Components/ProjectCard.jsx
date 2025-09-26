@@ -8,7 +8,7 @@ const ProjectCard = ({ title, image, description, tags, liveUrl, codeUrl }) => {
   return (
     <div
       onClick={handleCard}
-      className="mt-10 w-full group relative flex flex-col justify-between md:h-[760px] rounded-2xl transition-transform hover:-translate-y-1"
+      className="mt-10 w-full group relative flex flex-col justify-between md:h-[520px] rounded-2xl transition-transform hover:-translate-y-1"
       aria-label={title}
     >
       {/* Gradient ring */}
@@ -17,12 +17,12 @@ const ProjectCard = ({ title, image, description, tags, liveUrl, codeUrl }) => {
       {/* Card body */}
       <div className="relative rounded-2xl border border-white/50 bg-gray-900/60 backdrop-blur p-5 shadow-lg h-full">
         {/* Image */}
-        <div className="relative overflow-hidden rounded-xl aspect-[16/9] mb-4">
+        <div className="relative overflow-hidden rounded-xl aspect-[21/9] mb-4">
           <img
             src={image}
             alt={title}
             loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-115"
           />
           {/* subtle gradient overlay bottom */}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/40 to-transparent" />
@@ -36,14 +36,14 @@ const ProjectCard = ({ title, image, description, tags, liveUrl, codeUrl }) => {
         </h3>
 
         {/* Description */}
-        <p className="mt-2 text-white/80 text-xs md:text-sm lg:text-xl">{description.slice(0,300)+"..."}</p>
+        <p className="mt-2 text-white/80 text-xs md:text-sm lg:text-sm">{description.slice(0,300)+"..."}</p>
 
         {/* Tags */}
-        <div className="mt-3 text-xs md:text-sm lg:text-xl flex flex-wrap gap-2">
+        <div className="mt-3 text-xs md:text-sm lg:text-sm flex flex-wrap gap-2">
           {tags?.map((t) => (
             <span
               key={t}
-              className="rounded-full border border-white/10 bg-white/20 px-2.5 py-1 text-white/80 "
+              className="rounded-full border border-white/10 bg-white/20 px-2.5 py-1 text-white "
             >
               {t}
             </span>
@@ -57,6 +57,7 @@ const ProjectCard = ({ title, image, description, tags, liveUrl, codeUrl }) => {
               href={liveUrl}
               target="_blank"
               rel="noreferrer"
+              onClick={(e) => e.stopPropagation()} // prevent parent click
               className="inline-flex items-center rounded-lg px-3 py-2 text-sm font-medium bg-gradient-to-r from-indigo-500 to-fuchsia-500 text-white shadow hover:brightness-110 active:scale-95"
             >
               Live
@@ -67,6 +68,7 @@ const ProjectCard = ({ title, image, description, tags, liveUrl, codeUrl }) => {
               href={codeUrl}
               target="_blank"
               rel="noreferrer"
+              onClick={(e) => e.stopPropagation()} // prevent parent click
               className="inline-flex items-center rounded-lg px-3 py-2 text-sm font-medium border border-white/15 text-white/90 hover:bg-white/10 active:scale-95"
             >
               Code
