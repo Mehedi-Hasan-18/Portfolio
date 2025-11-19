@@ -46,7 +46,7 @@ const Navber = () => {
           {/* CTA Button (Desktop) */}
           <div className="hidden md:block">
             <a
-              href="https://drive.google.com/file/d/1GX8uTVTNpEs3aol0ZIQ7QZndGQYbBE7x/view?usp=sharing"
+              href="https://drive.google.com/file/d/11hESZw1v2UANoQcjlxOzVJmOvaxPdJcR/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105"
