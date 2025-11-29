@@ -3,7 +3,7 @@ import uniImg from '../assets/University.png';
 
 const Education = () => {
   return (
-    <div className="md:max-w-6xl md:mx-auto md:px-4 py-5 md:py-10">
+    <div className="md:max-w-6xl md:mx-auto md:px-4 py-5 md:py-10 px-6">
       <h2 className="text-3xl font-bold text-center mb-10 text-blue-500">Education</h2>
       
       <div className="rounded-2xl border border-white/50 bg-gray-900/60 backdrop-blur p-3 md:p-8 shadow-xl group flex flex-col md:flex-row overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:border-white/50 hover:shadow-xl">
