@@ -1,14 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const ProjectCard = ({ title, image, description, tags, liveUrl, codeUrl }) => {
-  const handleCard = () =>{
-    console.log("hello")
-    window.open(liveUrl, "_blank");
-  }
+const ProjectCard = ({ title, image, description, tags, liveUrl, codeUrl, projectId }) => {
+  const navigate = useNavigate();
+
+  const handleDetailsClick = (e) => {
+    e.stopPropagation();
+    navigate(`/project/${projectId}`);
+  };
+
   return (
     <div
-      onClick={handleCard}
-      className="mt-10 w-full group relative flex flex-col justify-between md:h-[520px] rounded-2xl transition-transform hover:-translate-y-1"
+      className="mt-10 w-full group relative flex flex-col justify-between md:h-[550px] rounded-2xl transition-transform hover:-translate-y-1"
       aria-label={title}
     >
       {/* Gradient ring */}
@@ -69,10 +72,20 @@ const ProjectCard = ({ title, image, description, tags, liveUrl, codeUrl }) => {
               target="_blank"
               rel="noreferrer"
               onClick={(e) => e.stopPropagation()} // prevent parent click
-              className="inline-flex items-center rounded-lg px-3 py-2 text-sm font-medium border border-white/15 text-white/90 hover:bg-white/10 active:scale-95"
+              className="inline-flex items-center rounded-lg px-3 py-2 text-sm font-medium 
+              border border-white/15 text-white/90 hover:bg-white/10 active:scale-95"
             >
               Code
             </a>
+          )}
+          {projectId && (
+            <button
+              onClick={handleDetailsClick}
+              className="inline-flex items-center rounded-lg px-3 py-2 text-sm font-medium 
+              bg-gradient-to-r from-cyan-700 to-fuchsia-900 shadow border border-white/15 text-white/90 hover:bg-white/10 active:scale-95"
+            >
+              Details
+            </button>
           )}
         </div>
       </div>

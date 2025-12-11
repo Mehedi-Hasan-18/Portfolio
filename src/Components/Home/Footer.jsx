@@ -42,7 +42,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative border-t border-gray-800  text-white overflow-hidden">
+    <footer className="relative mt-5 border-t border-gray-800  text-white overflow-hidden">
       <div className="relative md:max-w-7xl w-11/12 mx-auto py-12">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3  gap-15 mb-12">

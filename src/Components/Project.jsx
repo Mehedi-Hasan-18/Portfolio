@@ -13,6 +13,7 @@ import Experience from "./Exprience";
 
 const projects = [
   {
+    id: "phimart",
     title: "PhiMart",
     image: PhiMart,
     description:
@@ -33,6 +34,7 @@ const projects = [
     codeUrl: "https://github.com/Mehedi-Hasan-18/PhiMart-Client",
   },
   {
+    id: "dailynews",
     title: "Daily News",
     image: DailyNews,
     description:
@@ -53,6 +55,7 @@ const projects = [
     codeUrl: "https://github.com/Mehedi-Hasan-18/Daily-News-Client",
   },
   {
+    id: "eventmanagement",
     title: "Event Management",
     image: event_m,
     description:
@@ -70,33 +73,33 @@ const projects = [
     liveUrl: "https://event-management-4ayd.onrender.com/events/dashboard/",
     codeUrl: "https://github.com/Mehedi-Hasan-18/event_management",
   },
-  {
-    title: "Task Management",
-    image: NoImg,
-    description:
-      "This is a task management website .Where normal user can Add task, Remove task edit task also can delete task",
-    tags: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "React",
-      "Tailwind",
-      "Vite",
-      "Django",
-      "Render",
-    ],
-    liveUrl: "#",
-    codeUrl: "https://github.com/Mehedi-Hasan-18/task_management",
-  },
-  {
-    title: "Library Management",
-    image: NoImg,
-    description:
-      "Library Management is a Backend Project using Django. In This Web Api i create role based access. Jwt Authentication. Email varication. Functionality of add books, delete books, manage brrow and return information and so on",
-    tags: ["Vite", "Supabase", "Render", "Django", "RESTful API"],
-    liveUrl: "#",
-    codeUrl: "https://github.com/Mehedi-Hasan-18/Library-Management-System",
-  },
+  // {
+  //   title: "Task Management",
+  //   image: NoImg,
+  //   description:
+  //     "This is a task management website .Where normal user can Add task, Remove task edit task also can delete task",
+  //   tags: [
+  //     "HTML",
+  //     "CSS",
+  //     "JavaScript",
+  //     "React",
+  //     "Tailwind",
+  //     "Vite",
+  //     "Django",
+  //     "Render",
+  //   ],
+  //   liveUrl: "#",
+  //   codeUrl: "https://github.com/Mehedi-Hasan-18/task_management",
+  // },
+  // {
+  //   title: "Library Management",
+  //   image: NoImg,
+  //   description:
+  //     "Library Management is a Backend Project using Django. In This Web Api i create role based access. Jwt Authentication. Email varication. Functionality of add books, delete books, manage brrow and return information and so on",
+  //   tags: ["Vite", "Supabase", "Render", "Django", "RESTful API"],
+  //   liveUrl: "#",
+  //   codeUrl: "https://github.com/Mehedi-Hasan-18/Library-Management-System",
+  // },
 ];
 
 const Project = () => {
@@ -117,26 +120,13 @@ const Project = () => {
       <Experience />
       {/* Grid layout */}
       <h2 className="text-3xl text-center md:text-4xl font-bold text-white mb-3">
-        <span className="text-indigo-500">
-          My Projects
-        </span>
+        <span className="text-indigo-500">My Projects</span>
       </h2>
-      <Swiper
-        modules={[Navigation]}
-        navigation
-        spaceBetween={30}
-        slidesPerView={1}
-        breakpoints={{
-          768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
-        }}
-      >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {projects.map((p) => (
-          <SwiperSlide className="w-full" key={p.title}>
-            <ProjectCard className="w-full" {...p} />
-          </SwiperSlide>
+          <ProjectCard className="w-full" key={p.id} projectId={p.id} {...p} />
         ))}
-      </Swiper>
+      </div>
     </section>
   );
 };

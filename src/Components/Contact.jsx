@@ -91,6 +91,7 @@ const Contact = () => {
                     className="truncate font-medium text-gray-200 hover:text-blue-400 transition"
                     title={email}
                   >
+                    {email}
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
@@ -119,6 +120,7 @@ const Contact = () => {
                     className="truncate font-medium text-gray-200 hover:text-green-400 transition"
                     title={phone}
                   >
+                    {phone}
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
