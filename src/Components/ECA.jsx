@@ -48,8 +48,8 @@ const ECA = () => {
               href={item.href || "#"}
               target={item.href ? "_blank" : "_self"}
               rel={item.href ? "noreferrer" : undefined}
-              className="group relative block rounded-2xl border border-white/50 bg-gray-900/60 p-6 backdrop-blur
-                         transition-transform duration-300 hover:-translate-y-1 hover:border-white/50 hover:shadow-xl"
+              className="group relative block rounded-2xl border border-white/10 bg-gray-900/60 p-6 backdrop-blur
+                         transition-all duration-300 hover:-translate-y-2 hover:border-white/30 hover:shadow-xl hover:shadow-indigo-500/10"
             >
               {/* subtle gradient ring on hover */}
               <span className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
