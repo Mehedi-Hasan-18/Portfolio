@@ -11,14 +11,12 @@ const ProjectCard = ({ title, image, description, tags, liveUrl, codeUrl, projec
 
   return (
     <div
-      className="mt-10 w-full group relative flex flex-col justify-between md:h-[550px] rounded-2xl transition-transform hover:-translate-y-1"
+      className="mt-10 w-full group relative flex flex-col justify-between md:h-[570px] rounded-2xl "
       aria-label={title}
     >
-      {/* Gradient ring */}
-      <div className="absolute -inset-px rounded-2xl bg-gradient-to-r from-indigo-500/40 to-emerald-500/40 blur opacity-0 transition-opacity hover:border-white/50 hover:shadow-xl pointer-events-none" />
 
       {/* Card body */}
-      <div className="relative rounded-2xl border border-white/50 bg-gray-900/60 backdrop-blur p-5 shadow-lg h-full">
+      <div className="group relative rounded-2xl border border-white/10 bg-gray-900/60 backdrop-blur p-5 shadow-lg h-full transition-all duration-300 hover:-translate-y-2 hover:border-white/30 hover:shadow-xl hover:shadow-indigo-500/10">
         {/* Image */}
         <div className="relative overflow-hidden rounded-xl aspect-[21/9] mb-4">
           <img
@@ -33,20 +31,20 @@ const ProjectCard = ({ title, image, description, tags, liveUrl, codeUrl, projec
 
         {/* Title */}
         <h3 className="lg:text-xl">
-          <span className=" text-amber-300 font-bold">
+          <span className=" text-white font-bold">
             {title}
           </span>
         </h3>
 
         {/* Description */}
-        <p className="mt-2 text-white/80 text-xs md:text-sm lg:text-sm">{description.slice(0,300)+"..."}</p>
+        <p className="mt-5 mb-5 italic text-white/80 text-xs md:text-sm lg:text-sm">{description.slice(0,150)+"..."}</p>
 
         {/* Tags */}
-        <div className="mt-3 text-xs md:text-sm lg:text-sm flex flex-wrap gap-2">
+        <div className="mt-3 mb-5 text-xs md:text-sm lg:text-sm flex flex-wrap gap-2">
           {tags?.map((t) => (
             <span
               key={t}
-              className="rounded-full border border-white/10 bg-white/20 px-2.5 py-1 text-white "
+              className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-white/90 text-sm max-w-[180px] min-w-0 px-3 py-2"
             >
               {t}
             </span>

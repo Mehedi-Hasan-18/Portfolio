@@ -43,7 +43,7 @@ const Home = () => {
   return (
     <div className="relative text-white min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900">
       {/* Glowing orb effect */}
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl opacity-20"></div>
+      {/* <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl opacity-20"></div> */}
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Side: Text Content */}
