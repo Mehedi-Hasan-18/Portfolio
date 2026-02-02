@@ -3,6 +3,8 @@ import Navber from "./Home/Navber";
 import Footer from "./Home/Footer";
 import { Outlet } from "react-router-dom";
 
+import Chatbot from "./Chatbot";
+
 const Main = () => {
   return (
     <div className="min-h-screen w-full relative">
@@ -17,6 +19,10 @@ const Main = () => {
       <Navber></Navber>
       <Outlet />
       <Footer></Footer>
+      {/* Floating Chatbot */}
+      <div style={{ position: "fixed", bottom: 24, right: 24, zIndex: 1000 }}>
+        <Chatbot />
+      </div>
     </div>
   );
 };
