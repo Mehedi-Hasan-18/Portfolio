@@ -14,7 +14,7 @@ const Experience = () => {
   const achievements = [
     {
       icon: TrendingUp,
-      text: "Improved website performance by 35% through code optimization and responsive design, enhancing user retention",
+      text: "Improved website performance through code optimization and responsive design, enhancing user retention",
     },
     {
       icon: Code,
@@ -22,15 +22,11 @@ const Experience = () => {
     },
     {
       icon: Bug,
-      text: "Reduced system downtime from 8% → 1% by resolving bugs and implementing monitoring solutions",
+      text: "Reduced system downtime by resolving bugs and implementing monitoring solutions",
     },
     {
       icon: Users,
       text: "Collaborated in an Agile development team of 5, gathering requirements, writing documentation, and delivering scalable web solutions",
-    },
-    {
-      icon: GitBranch,
-      text: "Applied Git version control and CI/CD pipelines, improving release speed and deployment accuracy",
     },
   ];
 
