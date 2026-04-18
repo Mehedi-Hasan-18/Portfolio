@@ -57,11 +57,7 @@ const projects = [
   {
     id: "jobtracker",
     title: "JobTrackr — Full Stack Web App",
-<<<<<<< HEAD
     image: job_tracker,
-=======
-    image: event_m,
->>>>>>> 714bffe18581cc8fce621e31382e5a203bf3d419
     description:
       "Built REST API with DRF serving 8 endpoints with JWT authentication. Implemented async email reminders using Celery + Upstash Redis. Auto-status system that detects ghosted applications after 30 days. Deployed backend on Render, frontend on Vercel with CI/CD via GitHub",
     tags: [
