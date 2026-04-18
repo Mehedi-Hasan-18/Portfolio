@@ -1,7 +1,7 @@
 import React from "react";
 import PhiMart from "../assets/PhiMart.png";
 import DailyNews from "../assets/Daily News.png";
-import event_m from "../assets/Event_P.png";
+import job_tracker from "../assets/job_tracker.png";
 import ProjectCard from "./ProjectCard";
 import NoImg from "../assets/No Photo Img.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -55,51 +55,25 @@ const projects = [
     codeUrl: "https://github.com/Mehedi-Hasan-18/Daily-News-Client",
   },
   {
-    id: "eventmanagement",
-    title: "Event Management",
-    image: event_m,
+    id: "jobtracker",
+    title: "JobTrackr — Full Stack Web App",
+    image: job_tracker,
     description:
-      "This is a event management website .Where Admin can Add Participant to a event . Can Remove Them also. And Admin Can Manage all the event at once . Add New event , delete, and also can edit",
+      "Built REST API with DRF serving 8 endpoints with JWT authentication. Implemented async email reminders using Celery + Upstash Redis. Auto-status system that detects ghosted applications after 30 days. Deployed backend on Render, frontend on Vercel with CI/CD via GitHub",
     tags: [
-      "HTML",
-      "CSS",
+      "Django REST Framework",
+      "Redis",
       "JavaScript",
       "React",
       "Tailwind",
-      "Vite",
+      "JWT Auth",
       "Django",
-      "Render",
+      "PostgreSQL",
+      "Celery"
     ],
-    liveUrl: "https://event-management-4ayd.onrender.com/events/dashboard/",
-    codeUrl: "https://github.com/Mehedi-Hasan-18/event_management",
+    liveUrl: "https://jobtraker.netlify.app/",
+    codeUrl: "https://github.com/Mehedi-Hasan-18/job_tracker_frontend",
   },
-  // {
-  //   title: "Task Management",
-  //   image: NoImg,
-  //   description:
-  //     "This is a task management website .Where normal user can Add task, Remove task edit task also can delete task",
-  //   tags: [
-  //     "HTML",
-  //     "CSS",
-  //     "JavaScript",
-  //     "React",
-  //     "Tailwind",
-  //     "Vite",
-  //     "Django",
-  //     "Render",
-  //   ],
-  //   liveUrl: "#",
-  //   codeUrl: "https://github.com/Mehedi-Hasan-18/task_management",
-  // },
-  // {
-  //   title: "Library Management",
-  //   image: NoImg,
-  //   description:
-  //     "Library Management is a Backend Project using Django. In This Web Api i create role based access. Jwt Authentication. Email varication. Functionality of add books, delete books, manage brrow and return information and so on",
-  //   tags: ["Vite", "Supabase", "Render", "Django", "RESTful API"],
-  //   liveUrl: "#",
-  //   codeUrl: "https://github.com/Mehedi-Hasan-18/Library-Management-System",
-  // },
 ];
 
 const Project = () => {

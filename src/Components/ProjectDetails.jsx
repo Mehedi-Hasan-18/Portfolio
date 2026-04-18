@@ -9,6 +9,7 @@ import DailyNews2 from "../assets/DailyNews2.png";
 import event_m from "../assets/event_m.png";
 import event_m1 from "../assets/event_m1.png";
 import event_m2 from "../assets/event_m2.png";
+import job_tracker from "../assets/job_tracker.png";
 
 const projectsData = {
   phimart: {
@@ -45,7 +46,11 @@ const projectsData = {
     images: [PhiMart, PhiMart1, PhiMart2],
     liveUrl: "https://phiimart.netlify.app/",
     codeUrl: "https://github.com/Mehedi-Hasan-18/PhiMart-Client",
-    highlights: ["Secure Authentication", "Admin Dashboard", "Mobile Optimized"],
+    highlights: [
+      "Secure Authentication",
+      "Admin Dashboard",
+      "Mobile Optimized",
+    ],
   },
   dailynews: {
     id: "dailynews",
@@ -83,39 +88,39 @@ const projectsData = {
     codeUrl: "https://github.com/Mehedi-Hasan-18/Daily-News-Client",
     highlights: ["High Performance", "99.9% Uptime", "JWT Security"],
   },
-  eventmanagement: {
-    id: "eventmanagement",
-    title: "Event Management",
-    image: event_m,
+  jobtracker: {
+    id: "jobtracker",
+    title: "JobTrackr — Full Stack Web App",
+    image: job_tracker,
     shortDescription:
-      "A comprehensive event management website where admins can manage events, add/remove participants, and handle all event operations.",
+      "A Complete Web App to track your all job in one place",
     fullDescription:
-      "Event Management is a comprehensive platform designed to simplify event organization and participant management. Admins have full control over event creation, editing, and deletion. The platform allows seamless participant management with the ability to add or remove attendees from events. Built with modern technologies including React, Tailwind CSS, and Django backend, this application provides an intuitive interface for managing multiple events simultaneously with real-time updates.",
+      "With The Help of this Job Tracker Webapp you can manage your job application very smartly with one place. If You don't get any reply within 30 days it's automaticly go to Ghost option. EveryDay 9 am a self reminder email will remind you about your application.",
     technologies: [
-      "HTML",
-      "CSS",
+      "Django REST Framework",
+      "Redis",
       "JavaScript",
       "React",
-      "Tailwind CSS",
-      "Vite",
+      "Tailwind",
+      "JWT Auth",
       "Django",
-      "Render",
       "PostgreSQL",
+      "Celery",
     ],
     features: [
-      "Complete event management system",
-      "Admin dashboard for event operations",
-      "Participant management and tracking",
-      "Event creation, editing, and deletion",
-      "Real-time participant updates",
-      "Event categorization",
-      "Attendee list and registration",
-      "Event scheduling and calendar view",
+      "Built REST API with DRF serving 8 endpoints with JWT authentication.",
+      "Implemented async email reminders using Celery + Upstash Redis.",
+      "Auto-status system that detects ghosted applications after 30 days.",
+      "Deployed backend on Render, frontend on Nitlify with CI/CD via GitHub",
     ],
-    images: [event_m, event_m1, event_m2],
-    liveUrl: "https://event-management-4ayd.onrender.com/events/dashboard/",
-    codeUrl: "https://github.com/Mehedi-Hasan-18/event_management",
-    highlights: ["Full Admin Control", "Participant Tracking", "Real-time Updates"],
+    images: [job_tracker],
+    liveUrl: "https://jobtraker.netlify.app/",
+    codeUrl: "https://github.com/Mehedi-Hasan-18/job_tracker_frontend",
+    highlights: [
+      "Track Job Application",
+      "Auto email Remainder",
+      "Search and Filter Option",
+    ],
   },
 };
 
@@ -182,14 +187,18 @@ const ProjectDetails = () => {
               key={highlight}
               className="bg-gradient-to-r from-indigo-500/20 to-emerald-500/20 border border-white/10 rounded-lg p-4"
             >
-              <p className="text-white font-semibold text-center">{highlight}</p>
+              <p className="text-white font-semibold text-center">
+                {highlight}
+              </p>
             </div>
           ))}
         </div>
 
         {/* Full Description */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-4">About This Project</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">
+            About This Project
+          </h2>
           <p className="text-white/80 text-lg leading-relaxed">
             {project.fullDescription}
           </p>
@@ -236,7 +245,9 @@ const ProjectDetails = () => {
 
         {/* Project Gallery */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold text-white mb-6">Project Gallery</h2>
+          <h2 className="text-2xl font-bold text-white mb-6">
+            Project Gallery
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {project.images.map((img, index) => (
               <div
