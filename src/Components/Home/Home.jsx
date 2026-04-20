@@ -8,6 +8,23 @@ import Education from "../Education";
 import ECA from "../ECA";
 import { Download, Github, Linkedin, Youtube } from "lucide-react";
 import { useState } from "react";
+import SplitText from "../SplitText";
+import RotatingText from "../RotatingText";
+import AnimatedContent from "../AnimatedContent";
+import ScrollFloat from "../ScrollFloat";
+import LogoLoop from "../LogoLoop";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiJavascript,
+  SiVite,
+  SiDjango,
+  SiPython,
+  SiPostgresql,
+  SiGithub,
+} from "react-icons/si";
 
 const Home = () => {
   const [copied, setCopied] = useState("");
@@ -29,7 +46,7 @@ const Home = () => {
     e.preventDefault();
     const subject = encodeURIComponent("Hello Mehedi!");
     const body = encodeURIComponent(
-      "Hi Mehedi,\n\nI came across your portfolio and would love to connect.\n\nBest regards,"
+      "Hi Mehedi,\n\nI came across your portfolio and would love to connect.\n\nBest regards,",
     );
     window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
   };
@@ -40,6 +57,51 @@ const Home = () => {
     codeforce: "https://codeforces.com/profile/mehedi_hasan_18",
     codechef: "https://www.codechef.com/users/mehedi_hasan18",
   };
+  const techLogos = [
+    { node: <SiReact />, title: "React", href: "https://react.dev" },
+    { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
+    {
+      node: <SiTypescript />,
+      title: "TypeScript",
+      href: "https://www.typescriptlang.org",
+    },
+    {
+      node: <SiTailwindcss />,
+      title: "Tailwind CSS",
+      href: "https://tailwindcss.com",
+    },
+    {
+      node: <SiJavascript />,
+      title: "JavaScript",
+      href: "#",
+    },
+    {
+      node: <SiVite />,
+      title: "Vite",
+      href: "#",
+    },
+    {
+      node: <SiDjango />,
+      title: "Django",
+      href: "#",
+    },
+    {
+      node: <SiPython />,
+      title: "Python",
+      href: "#",
+    },
+    {
+      node: <SiPostgresql />,
+      title: "PostgreSQL",
+      href: "#",
+    },
+    {
+      node: <SiGithub />,
+      title: "GitHub",
+      href: "#",
+    },
+  ];
+
   return (
     <div className="relative text-white min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900">
       {/* Glowing orb effect */}
@@ -49,14 +111,43 @@ const Home = () => {
           {/* Left Side: Text Content */}
           <div className="space-y-6 z-10">
             <p className="text-gray-400 text-sm md:text-xl">Hi, my name is</p>
+            <SplitText
+              text="Mehedi Hasan"
+              className="text-5xl md:text-7xl font-bold tracking-tight"
+              delay={50}
+              duration={1.25}
+              ease="power3.out"
+              splitType="chars"
+              from={{ opacity: 0, y: 40 }}
+              to={{ opacity: 1, y: 0 }}
+              threshold={0.1}
+              rootMargin="-100px"
+              textAlign="center"
+              showCallback
+            />
 
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-              Mehedi Hasan
-            </h1>
-
-            <p className="text-blue-400 text-xl md:text-2xl font-semibold">
-              Software Engineer
-            </p>
+            <RotatingText
+              texts={[
+                "Software Engineer",
+                "Compititive Programmer",
+                "Content Creator",
+              ]}
+              mainClassName="text-blue-400 text-xl md:text-2xl font-semibold"
+              staggerFrom="last"
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-120%" }}
+              staggerDuration={0.025}
+              splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+              transition={{ type: "spring", damping: 30, stiffness: 400 }}
+              rotationInterval={4000}
+              splitBy="characters"
+              auto
+              loop
+            />
+            {/* <p className="text-blue-400 text-xl md:text-2xl font-semibold">
+              
+            </p> */}
 
             <p className="text-gray-300 leading-relaxed max-w-xl text-sm md:text-base">
               I'm a problem-solver at heart who loves turning ideas into working
@@ -161,103 +252,138 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <div>
+        <LogoLoop
+          logos={techLogos}
+          speed={100}
+          direction="left"
+          logoHeight={60}
+          gap={60}
+          hoverSpeed={0}
+          scaleOnHover
+          fadeOut
+          fadeOutColor=""
+          ariaLabel="Tech Stack"
+        />
+      </div>
       <Project></Project>
       <Skills className="md:mt-5"></Skills>
       <Education></Education>
       <ECA></ECA>
       {/* //contact form */}
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-          <span className="text-indigo-500">Get in touch</span>
-        </h2>
-        <p className="text-white/70 text-sm md:text-base">
-          I try to respond within 24–48 hours.
-        </p>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 pb-5">
-        <div></div>
-        <div
-          className="relative rounded-2xl bg-gray-900/70 border border-gray-800 p-6 backdrop-blur
-                         transition-transform duration-300 hover:-translate-y-1 hover:border-white/50 hover:shadow-xl "
-        >
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 to-transparent opacity-0 pointer-events-none"></div>
-          <h2 className="text-xl font-semibold text-white">Get in touch</h2>
-          <p className="text-gray-400 text mt-1">
+      <AnimatedContent
+        distance={100}
+        direction="vertical"
+        reverse={false}
+        duration={0.8}
+        ease="power3.out"
+        initialOpacity={0}
+        animateOpacity
+        scale={1}
+        threshold={0.1}
+        delay={0}
+      >
+        <div className="text-center mb-12">
+          <div className="text-3xl text-center md:text-4xl font-bold text-white mb-3">
+            <ScrollFloat
+              animationDuration={1}
+              ease="back.inOut(2)"
+              scrollStart="center bottom+=70%"
+              scrollEnd="bottom bottom-=40%"
+              stagger={0.03}
+            >
+              Get in touch
+            </ScrollFloat>
+          </div>
+          <p className="text-white/70 text-sm md:text-base">
             I try to respond within 24–48 hours.
           </p>
-
-          <div className="mt-6 space-y-4">
-            {/* Email */}
-            <div className="flex items-center hover:border-white/50 transition justify-between gap-3 rounded-xl border border-gray-800 bg-gray-950/60 p-4">
-              <div className="min-w-0">
-                <p className="font-bold text-gray-400">Email</p>
-                <a
-                  href={`mailto:${email}`}
-                  className="truncate font-medium text-gray-200 hover:text-blue-400 transition"
-                  title={email}
-                >
-                  {email}
-                </a>
-              </div>
-              <div className="flex items-center gap-2">
-                <a
-                  href={`mailto:${email}`}
-                  className="rounded-lg border border-gray-700 px-3 py-1.5 text-sm hover:border-blue-500 hover:text-blue-400 transition"
-                >
-                  Write
-                </a>
-                <button
-                  onClick={() => copyToClipboard(email)}
-                  className="rounded-lg border border-gray-700 px-3 py-1.5 text-sm hover:border-gray-500 transition"
-                  aria-label="Copy email"
-                >
-                  {copied === email ? "Copied!" : "Copy"}
-                </button>
-              </div>
-            </div>
-
-            {/* Phone */}
-            <div className="flex items-center justify-between gap-3 rounded-xl border border-gray-800 bg-gray-950/60 p-4 hover:border-white/50 transition">
-              <div className="min-w-0 ">
-                <p className="font-bold text-gray-400">Phone</p>
-                <a
-                  href={`tel:${phone.replace(/\s+/g, "")}`}
-                  className="truncate font-medium text-gray-200 hover:text-green-400 transition"
-                  title={phone}
-                >
-                  {phone}
-                </a>
-              </div>
-              <div className="flex items-center gap-2">
-                <a
-                  target="_blank"
-                  href="https://wa.link/8i0d7s"
-                  className="rounded-lg border border-gray-700 px-3 py-1.5 text-sm hover:border-green-500 hover:text-green-400 transition"
-                >
-                  WhatsAPP
-                </a>
-                <button
-                  onClick={() => copyToClipboard(phone)}
-                  className="rounded-lg border border-gray-700 px-3 py-1.5 text-sm hover:border-gray-500 transition"
-                  aria-label="Copy phone"
-                >
-                  {copied === phone ? "Copied!" : "Copy"}
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Quick mailto button */}
-          <form onSubmit={handleMailto} className="mt-6">
-            <button
-              type="submit"
-              className="w-full rounded-xl bg-white/10 px-4 py-3 text-sm font-medium text-white hover:bg-white/20 transition border border-gray-700"
-            >
-              Quick Email
-            </button>
-          </form>
         </div>
-      </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 pb-5">
+          <div></div>
+          <div
+            className="relative rounded-2xl bg-gray-900/70 border border-gray-800 p-6 backdrop-blur
+                         transition-transform duration-300 hover:-translate-y-1 hover:border-white/50 hover:shadow-xl "
+          >
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 to-transparent opacity-0 pointer-events-none"></div>
+            <h2 className="text-xl font-semibold text-white">Get in touch</h2>
+            <p className="text-gray-400 text mt-1">
+              I try to respond within 24–48 hours.
+            </p>
+
+            <div className="mt-6 space-y-4">
+              {/* Email */}
+              <div className="flex items-center hover:border-white/50 transition justify-between gap-3 rounded-xl border border-gray-800 bg-gray-950/60 p-4">
+                <div className="min-w-0">
+                  <p className="font-bold text-gray-400">Email</p>
+                  <a
+                    href={`mailto:${email}`}
+                    className="truncate font-medium text-gray-200 hover:text-blue-400 transition"
+                    title={email}
+                  >
+                    {email}
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <a
+                    href={`mailto:${email}`}
+                    className="rounded-lg border border-gray-700 px-3 py-1.5 text-sm hover:border-blue-500 hover:text-blue-400 transition"
+                  >
+                    Write
+                  </a>
+                  <button
+                    onClick={() => copyToClipboard(email)}
+                    className="rounded-lg border border-gray-700 px-3 py-1.5 text-sm hover:border-gray-500 transition"
+                    aria-label="Copy email"
+                  >
+                    {copied === email ? "Copied!" : "Copy"}
+                  </button>
+                </div>
+              </div>
+
+              {/* Phone */}
+              <div className="flex items-center justify-between gap-3 rounded-xl border border-gray-800 bg-gray-950/60 p-4 hover:border-white/50 transition">
+                <div className="min-w-0 ">
+                  <p className="font-bold text-gray-400">Phone</p>
+                  <a
+                    href={`tel:${phone.replace(/\s+/g, "")}`}
+                    className="truncate font-medium text-gray-200 hover:text-green-400 transition"
+                    title={phone}
+                  >
+                    {phone}
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <a
+                    target="_blank"
+                    href="https://wa.link/8i0d7s"
+                    className="rounded-lg border border-gray-700 px-3 py-1.5 text-sm hover:border-green-500 hover:text-green-400 transition"
+                  >
+                    WhatsAPP
+                  </a>
+                  <button
+                    onClick={() => copyToClipboard(phone)}
+                    className="rounded-lg border border-gray-700 px-3 py-1.5 text-sm hover:border-gray-500 transition"
+                    aria-label="Copy phone"
+                  >
+                    {copied === phone ? "Copied!" : "Copy"}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick mailto button */}
+            <form onSubmit={handleMailto} className="mt-6">
+              <button
+                type="submit"
+                className="w-full rounded-xl bg-white/10 px-4 py-3 text-sm font-medium text-white hover:bg-white/20 transition border border-gray-700"
+              >
+                Quick Email
+              </button>
+            </form>
+          </div>
+        </div>
+      </AnimatedContent>
     </div>
   );
 };

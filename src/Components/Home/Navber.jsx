@@ -14,7 +14,7 @@ const Navber = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <nav className=" text-white backdrop-blur-lg border-b border-gray-200/50 shadow-lg">
+    <nav className=" text-black backdrop-blur-lg border-b border-gray-200/50 shadow-lg sticky top-0 z-50 bg-transparent">
       <div className="md:max-w-7xl md:mx-auto w-11/12 mx-auto">
         <div className="flex justify-between items-center h-16 ">
           {/* Logo/Brand */}

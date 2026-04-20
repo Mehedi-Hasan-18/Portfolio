@@ -10,6 +10,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation } from "swiper/modules";
 import Experience from "./Exprience";
+import ScrollFloat from "./ScrollFloat";
+import AnimatedContent from "./AnimatedContent";
 
 const projects = [
   {
@@ -69,7 +71,7 @@ const projects = [
       "JWT Auth",
       "Django",
       "PostgreSQL",
-      "Celery"
+      "Celery",
     ],
     liveUrl: "https://jobtraker.netlify.app/",
     codeUrl: "https://github.com/Mehedi-Hasan-18/job_tracker_frontend",
@@ -78,30 +80,62 @@ const projects = [
 
 const Project = () => {
   return (
-    <section className="md:max-w-7xl md:mx-auto md:px-4 px-6">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-          <span className="text-indigo-500">
-            Professional Experience & Projects
-          </span>
-        </h2>
-        <p className="text-white/70 text-sm md:text-base">
-          Highlights of my career and key projects showcasing my skills &
-          impact.
-        </p>
-      </div>
-      {/* Exprience Section */}
-      <Experience />
-      {/* Grid layout */}
-      <h2 className="text-3xl text-center md:text-4xl font-bold text-white mb-3">
-        <span className="text-indigo-500">My Projects</span>
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {projects.map((p) => (
-          <ProjectCard className="w-full" key={p.id} projectId={p.id} {...p} />
-        ))}
-      </div>
-    </section>
+    <AnimatedContent
+      distance={100}
+      direction="vertical"
+      reverse={false}
+      duration={0.8}
+      ease="power3.out"
+      initialOpacity={0}
+      animateOpacity
+      scale={1}
+      threshold={0.1}
+      delay={0}
+    >
+      <section className="md:max-w-7xl md:mx-auto md:px-4 px-6">
+        <div className="text-center mb-12">
+          <div className="text-3xl mt-5 text-center md:text-4xl font-bold text-white mb-3">
+            <ScrollFloat
+              animationDuration={1}
+              ease="back.inOut(2)"
+              scrollStart="center bottom+=70%"
+              scrollEnd="bottom bottom-=40%"
+              stagger={0.03}
+            >
+              Professional Experience & Projects
+            </ScrollFloat>
+          </div>
+          <p className="text-white/70 text-sm md:text-base">
+            Highlights of my career and key projects showcasing my skills &
+            impact.
+          </p>
+        </div>
+        {/* Exprience Section */}
+        <Experience />
+        {/* Grid layout */}
+        <div className="text-3xl text-center md:text-4xl font-bold text-white mb-3">
+          <ScrollFloat
+            animationDuration={1}
+            ease="back.inOut(2)"
+            scrollStart="center bottom+=70%"
+            scrollEnd="bottom bottom-=40%"
+            stagger={0.03}
+          >
+            My Projects
+          </ScrollFloat>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {projects.map((p) => (
+            <ProjectCard
+              className="w-full"
+              key={p.id}
+              projectId={p.id}
+              {...p}
+            />
+          ))}
+        </div>
+      </section>
+    </AnimatedContent>
   );
 };
 

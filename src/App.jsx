@@ -1,10 +1,15 @@
-import "./App.css";
 import Home from "./Components/Home/Home";
+import LightRays from "./Components/LightRays";
+import SplashCursor from "./Components/SplashCursor";
 
 function App() {
   return (
-    <div>
-      <Home></Home>
+    <div className="relative w-full min-h-screen">
+      
+
+      
+
+      <Home />
     </div>
   );
 }
