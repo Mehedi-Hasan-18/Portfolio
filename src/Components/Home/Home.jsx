@@ -8,29 +8,16 @@ import Education from "../Education";
 import ECA from "../ECA";
 import { Download, Github, Linkedin, Youtube } from "lucide-react";
 import { useState } from "react";
-import SplitText from "../SplitText";
-import RotatingText from "../RotatingText";
+import ScrambleText from "../ScrambleText";
 import AnimatedContent from "../AnimatedContent";
 import ScrollFloat from "../ScrollFloat";
-import LogoLoop from "../LogoLoop";
-import {
-  SiReact,
-  SiNextdotjs,
-  SiTypescript,
-  SiTailwindcss,
-  SiJavascript,
-  SiVite,
-  SiDjango,
-  SiPython,
-  SiPostgresql,
-  SiGithub,
-} from "react-icons/si";
+import YouTubeShowcase from "../YouTubeShowcase";
 
 const Home = () => {
   const [copied, setCopied] = useState("");
 
   const email = "mdmehedihasanroby@gmail.com";
-  const phone = "+60 174142969";
+  const phone = "+8801626759496";
 
   const copyToClipboard = async (text) => {
     try {
@@ -57,51 +44,6 @@ const Home = () => {
     codeforce: "https://codeforces.com/profile/mehedi_hasan_18",
     codechef: "https://www.codechef.com/users/mehedi_hasan18",
   };
-  const techLogos = [
-    { node: <SiReact />, title: "React", href: "https://react.dev" },
-    { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
-    {
-      node: <SiTypescript />,
-      title: "TypeScript",
-      href: "https://www.typescriptlang.org",
-    },
-    {
-      node: <SiTailwindcss />,
-      title: "Tailwind CSS",
-      href: "https://tailwindcss.com",
-    },
-    {
-      node: <SiJavascript />,
-      title: "JavaScript",
-      href: "#",
-    },
-    {
-      node: <SiVite />,
-      title: "Vite",
-      href: "#",
-    },
-    {
-      node: <SiDjango />,
-      title: "Django",
-      href: "#",
-    },
-    {
-      node: <SiPython />,
-      title: "Python",
-      href: "#",
-    },
-    {
-      node: <SiPostgresql />,
-      title: "PostgreSQL",
-      href: "#",
-    },
-    {
-      node: <SiGithub />,
-      title: "GitHub",
-      href: "#",
-    },
-  ];
-
   return (
     <div className="relative text-white min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900">
       {/* Glowing orb effect */}
@@ -111,40 +53,21 @@ const Home = () => {
           {/* Left Side: Text Content */}
           <div className="space-y-6 z-10">
             <p className="text-gray-400 text-sm md:text-xl">Hi, my name is</p>
-            <SplitText
+            <ScrambleText
               text="Mehedi Hasan"
-              className="text-5xl md:text-7xl font-bold tracking-tight"
-              delay={50}
-              duration={1.25}
-              ease="power3.out"
-              splitType="chars"
-              from={{ opacity: 0, y: 40 }}
-              to={{ opacity: 1, y: 0 }}
-              threshold={0.1}
-              rootMargin="-100px"
-              textAlign="center"
-              showCallback
+              duration={900}
+              className="block text-5xl font-bold tracking-tight md:text-7xl"
             />
 
-            <RotatingText
-              texts={[
-                "Software Engineer",
-                "Compititive Programmer",
-                "Content Creator",
-              ]}
-              mainClassName="text-blue-400 text-xl md:text-2xl font-semibold"
-              staggerFrom="last"
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "-120%" }}
-              staggerDuration={0.025}
-              splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
-              transition={{ type: "spring", damping: 30, stiffness: 400 }}
-              rotationInterval={4000}
-              splitBy="characters"
-              auto
-              loop
-            />
+            <div className="min-h-8 text-xl font-semibold text-blue-400 md:text-2xl">
+              <ScrambleText
+                texts={["Software Engineer", "Content Creator", "Problem Solver"]}
+                interval={2000}
+                duration={650}
+                loop
+                className="inline-block"
+              />
+            </div>
             {/* <p className="text-blue-400 text-xl md:text-2xl font-semibold">
               
             </p> */}
@@ -181,9 +104,21 @@ const Home = () => {
 
           {/* Right Side: Profile Image */}
           <div className="flex justify-center lg:justify-end z-10">
-            <div className="relative">
+            <div className="relative isolate">
+              <div
+                aria-hidden="true"
+                className="absolute -inset-8 -z-10 rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.42)_0%,rgba(147,51,234,0.28)_40%,rgba(15,23,42,0)_72%)] blur-3xl"
+              ></div>
+              <div
+                aria-hidden="true"
+                className="absolute inset-4 -z-10 rounded-full bg-blue-500/25 blur-2xl animate-pulse"
+              ></div>
               {/* Profile image container */}
-              <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-blue-500/30 shadow-2xl">
+              <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-96 md:h-96 rounded-full overflow-hidden border border-blue-300/20 shadow-2xl shadow-blue-500/25">
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 z-10 rounded-full bg-[linear-gradient(135deg,rgba(255,255,255,0.22),rgba(255,255,255,0)_35%,rgba(59,130,246,0.18)_100%)]"
+                ></div>
                 <div className="w-full h-full bg-gradient-to-br from-blue-900 to-purple-900 relative">
                   <img
                     src={image}
@@ -252,24 +187,11 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div>
-        <LogoLoop
-          logos={techLogos}
-          speed={100}
-          direction="left"
-          logoHeight={60}
-          gap={60}
-          hoverSpeed={0}
-          scaleOnHover
-          fadeOut
-          fadeOutColor=""
-          ariaLabel="Tech Stack"
-        />
-      </div>
       <Project></Project>
       <Skills className="md:mt-5"></Skills>
       <Education></Education>
       <ECA></ECA>
+      <YouTubeShowcase channelUrl={socialLinks.youtube} />
       {/* //contact form */}
       <AnimatedContent
         distance={100}

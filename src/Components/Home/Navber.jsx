@@ -1,20 +1,18 @@
-import { useState } from "react";
-import { Menu, X, Download } from "lucide-react";
+import { Download, Home, UserRound, FolderKanban, Phone, Sparkles } from "lucide-react";
+import { useLocation } from "react-router-dom";
 
 const Navber = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const location = useLocation();
   const navItems = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "about" },
-    { name: "Projects", href: "https://github.com/Mehedi-Hasan-18?tab=repositories" },
-    { name: "Contact", href: "contact" },
+    { name: "Home", href: "/", icon: Home },
+    { name: "About", href: "about", icon: UserRound },
+    { name: "Projects", href: "https://github.com/Mehedi-Hasan-18?tab=repositories", icon: FolderKanban },
+    { name: "Contact", href: "contact", icon: Phone },
   ];
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
   return (
-    <nav className=" text-black backdrop-blur-lg border-b border-gray-200/50 shadow-lg sticky top-0 z-50 bg-transparent">
+    <>
+      <nav className="text-black backdrop-blur-lg border-b border-gray-200/50 shadow-lg sticky top-0 z-50 bg-transparent">
       <div className="md:max-w-7xl md:mx-auto w-11/12 mx-auto">
         <div className="flex justify-between items-center h-16 ">
           {/* Logo/Brand */}
@@ -56,48 +54,43 @@ const Navber = () => {
             </a>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-300"
-            >
-              {isMenuOpen ? (
-                <X className="block h-6 w-6" />
-              ) : (
-                <Menu className="block h-6 w-6" />
-              )}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Navigation Menu */}
-      <div
-        className={`md:hidden transition-all duration-300 ${
-          isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        } overflow-hidden`}
-      >
-        <div className="px-2 pt-2 pb-3 space-y-1 bg-gray-900 text-white backdrop-blur-md border-t border-gray-200/50">
-          {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="flex items-center px-3 py-3 rounded-lg text-base font-medium text-white hover:text-blue-600 transition-all duration-300 transform hover:translate-x-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {item.name}
-            </a>
-          ))}
-          <div className="px-3 py-2">
-            <button className="w-full inline-flex items-center justify-center px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-              <Download className="w-4 h-4 mr-2" />
-              Resume
-            </button>
-          </div>
         </div>
       </div>
     </nav>
+
+      <div className="md:hidden fixed bottom-2 left-1/2 z-[60] w-[calc(100%-0.75rem)] max-w-[20rem] -translate-x-1/2">
+        <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-gray-900/90 px-1.5 py-1.5 shadow-2xl shadow-black/40 backdrop-blur-xl">
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = item.href === "/"
+              ? location.pathname === "/"
+              : location.pathname.includes(item.href);
+
+            return (
+              <a
+                key={item.name}
+                href={item.href}
+                className={`flex flex-1 items-center justify-center rounded-xl p-1.5 transition-all duration-200 ${
+                  isActive
+                    ? "bg-blue-500/20 text-blue-400 shadow-[0_0_0_1px_rgba(59,130,246,0.25)]"
+                    : "text-gray-300 hover:bg-white/10 hover:text-white"
+                }`}
+              >
+                <Icon className="h-5 w-5" />
+              </a>
+            );
+          })}
+          <a
+            href="https://drive.google.com/file/d/1PTSyG85u6f6AUDRrqnmjGuEVkO_K4oFw/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-1 items-center justify-center rounded-xl p-1.5 text-gray-300 transition-all duration-200 hover:bg-white/10 hover:text-white"
+          >
+            <Download className="h-5 w-5" />
+          </a>
+        </div>
+      </div>
+    </>
   );
 };
 

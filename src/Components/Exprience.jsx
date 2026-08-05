@@ -14,19 +14,19 @@ const Experience = () => {
   const achievements = [
     {
       icon: TrendingUp,
-      text: "Improved website performance through code optimization and responsive design, enhancing user retention",
+      text: "Improved application performance by optimizing React components, reducing page load times and delivering a smoother user experience.",
     },
     {
       icon: Code,
-      text: "Developed and deployed 3 responsive websites using JavaScript, HTML, CSS, and WordPress, serving 500+ users monthly",
+      text: "Developed and maintained scalable frontend features using React.js, TypeScript, Tailwind CSS, and modern JavaScript for hotel booking and CRM platforms.",
     },
     {
-      icon: Bug,
-      text: "Reduced system downtime by resolving bugs and implementing monitoring solutions",
+      icon: GitBranch,
+      text: "Integrated REST APIs and collaborated with backend developers to build responsive, user-friendly interfaces for B2B and customer-facing applications.",
     },
     {
       icon: Users,
-      text: "Collaborated in an Agile development team of 5, gathering requirements, writing documentation, and delivering scalable web solutions",
+      text: "Worked closely with designers, product managers, and engineers in an Agile environment to deliver high-quality features and improve overall user experience.",
     },
   ];
 
@@ -36,7 +36,6 @@ const Experience = () => {
         className="group  rounded-2xl border border-white/10 bg-gray-900/60 p-6 backdrop-blur
                     transition-all duration-300 hover:-translate-y-2 hover:border-white/30 hover:shadow-xl hover:shadow-indigo-500/10"
       >
-
         {/* Header Section */}
         <div className="relative z-10">
           <div className="flex items-start gap-4 mb-6">
@@ -46,20 +45,22 @@ const Experience = () => {
 
             <div className="flex-1">
               <h3 className="text-2xl font-bold text-white mb-2">
-                Software Developer Intern
+                Software Engineer (Frontend)
               </h3>
+
               <p className="text-indigo-400 font-semibold text-lg mb-3">
-                Nitkertz(Malaysia) Sdn Bhd, Malaysia
+                tripbooking.ai
               </p>
 
               <div className="flex flex-wrap gap-4 text-sm text-white/60">
                 <div className="flex items-center gap-2">
                   <Calendar className="w-4 h-4" />
-                  <span>Aug 2025 – November 2025</span>
+                  <span>May 2026 – Present</span>
                 </div>
+
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4" />
-                  <span>Malaysia</span>
+                  <span>Dhaka, Bangladesh</span>
                 </div>
               </div>
             </div>

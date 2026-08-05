@@ -46,8 +46,8 @@ const Education = () => {
               Diploma in Information Technology
             </h3>
             <p className="text-white/90 text-lg md:text-xl mb-1 text-center md:text-left">
-              University of Cyberjaya <span className="text-blue-400">•</span>{" "}
-              Cyberjaya, Malaysia
+              University of Dhaka <span className="text-blue-400">•</span>{" "}
+              Dhaka, Bangladesh
             </p>
             <p className="text-center md:text-left text-sm mb-2">
               📅 2023 - 2026
