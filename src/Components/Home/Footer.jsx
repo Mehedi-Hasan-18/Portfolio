@@ -62,11 +62,11 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center text-gray-400 text-sm">
                 <MapPin className="w-4 h-4 mr-2 text-blue-400" />
-                Cyberjaya,Malaysia
+                Dhaka,Bangladesh
               </div>
               <div className="flex items-center text-gray-400 text-sm">
                 <Phone className="w-4 h-4 mr-2 text-blue-400" />
-                +60 174142969
+                +8801626759496
               </div>
               <div className="flex items-center text-gray-400 text-sm">
                 <Mail className="w-4 h-4 mr-2 text-blue-400" />
@@ -137,7 +137,7 @@ const Footer = () => {
               <Heart className="w-4 h-4 mx-1 text-red-500 animate-pulse" />
               and
               <Coffee className="w-4 h-4 mx-1 text-yellow-500" />
-              in Cyberjaya.
+              in Dhaka.
             </span>
             <div className="flex space-x-6 text-sm">
               <a

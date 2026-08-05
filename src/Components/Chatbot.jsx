@@ -85,19 +85,11 @@ export default function Chatbot() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              transition: "box-shadow 0.2s",
-              animation: "chatbot-glow 1.5s infinite alternate",
               position: "relative",
             }}
             onClick={() => setOpen(true)}
           >
             <ChatbotIcon size={48} color="#fff" />
-            <style>{`
-              @keyframes chatbot-glow {
-                0% { box-shadow: 0 0 24px 8px #2563eb, 0 2px 8px #0008; }
-                100% { box-shadow: 0 0 48px 16px #60a5fa, 0 2px 8px #0008; }
-              }
-            `}</style>
           </button>
           <span style={{
             marginTop: 8,

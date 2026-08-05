@@ -2,6 +2,7 @@ import React from "react";
 import PhiMart from "../assets/PhiMart.png";
 import DailyNews from "../assets/Daily News.png";
 import job_tracker from "../assets/job_tracker.png";
+import tripbooking_public from "../assets/tripbooking_public.png";
 import ProjectCard from "./ProjectCard";
 import NoImg from "../assets/No Photo Img.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,6 +15,25 @@ import ScrollFloat from "./ScrollFloat";
 import AnimatedContent from "./AnimatedContent";
 
 const projects = [
+  {
+  id: "tripbooking-public",
+  title: "tripbooking.ai — AI Hotel Booking Platform",
+  image: tripbooking_public,
+  description:
+    "Worked as a Frontend Developer at tripbooking.ai, developing and maintaining the company's public-facing hotel booking platform. Built responsive and reusable UI components using React, TypeScript, and Tailwind CSS, integrated REST APIs, optimized performance, and collaborated closely with UI/UX designers and backend engineers to deliver a fast, seamless booking experience across desktop and mobile devices.",
+  tags: [
+    "React",
+    "TypeScript",
+    "JavaScript",
+    "Tailwind CSS",
+    "REST API",
+    "Responsive Design",
+    "Git",
+    "Frontend Development",
+  ],
+  liveUrl: "https://tripbooking.ai",
+  codeUrl: "",
+},
   {
     id: "phimart",
     title: "PhiMart",
@@ -56,26 +76,7 @@ const projects = [
     liveUrl: "https://dailyneeews.netlify.app/",
     codeUrl: "https://github.com/Mehedi-Hasan-18/Daily-News-Client",
   },
-  {
-    id: "jobtracker",
-    title: "JobTrackr — Full Stack Web App",
-    image: job_tracker,
-    description:
-      "Built REST API with DRF serving 8 endpoints with JWT authentication. Implemented async email reminders using Celery + Upstash Redis. Auto-status system that detects ghosted applications after 30 days. Deployed backend on Render, frontend on Vercel with CI/CD via GitHub",
-    tags: [
-      "Django REST Framework",
-      "Redis",
-      "JavaScript",
-      "React",
-      "Tailwind",
-      "JWT Auth",
-      "Django",
-      "PostgreSQL",
-      "Celery",
-    ],
-    liveUrl: "https://jobtraker.netlify.app/",
-    codeUrl: "https://github.com/Mehedi-Hasan-18/job_tracker_frontend",
-  },
+  
 ];
 
 const Project = () => {
@@ -125,11 +126,12 @@ const Project = () => {
           </ScrollFloat>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {projects.map((p) => (
+          {projects.map((p, index) => (
             <ProjectCard
               className="w-full"
               key={p.id}
               projectId={p.id}
+              index={index}
               {...p}
             />
           ))}

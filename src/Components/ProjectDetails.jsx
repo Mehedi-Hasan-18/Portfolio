@@ -10,6 +10,7 @@ import event_m from "../assets/event_m.png";
 import event_m1 from "../assets/event_m1.png";
 import event_m2 from "../assets/event_m2.png";
 import job_tracker from "../assets/job_tracker.png";
+import tripbooking_public from "../assets/tripbooking_public.png";
 
 const projectsData = {
   phimart: {
@@ -88,40 +89,77 @@ const projectsData = {
     codeUrl: "https://github.com/Mehedi-Hasan-18/Daily-News-Client",
     highlights: ["High Performance", "99.9% Uptime", "JWT Security"],
   },
-  jobtracker: {
-    id: "jobtracker",
-    title: "JobTrackr — Full Stack Web App",
-    image: job_tracker,
-    shortDescription:
-      "A Complete Web App to track your all job in one place",
-    fullDescription:
-      "With The Help of this Job Tracker Webapp you can manage your job application very smartly with one place. If You don't get any reply within 30 days it's automaticly go to Ghost option. EveryDay 9 am a self reminder email will remind you about your application.",
-    technologies: [
-      "Django REST Framework",
-      "Redis",
-      "JavaScript",
-      "React",
-      "Tailwind",
-      "JWT Auth",
-      "Django",
-      "PostgreSQL",
-      "Celery",
-    ],
-    features: [
-      "Built REST API with DRF serving 8 endpoints with JWT authentication.",
-      "Implemented async email reminders using Celery + Upstash Redis.",
-      "Auto-status system that detects ghosted applications after 30 days.",
-      "Deployed backend on Render, frontend on Nitlify with CI/CD via GitHub",
-    ],
-    images: [job_tracker],
-    liveUrl: "https://jobtraker.netlify.app/",
-    codeUrl: "https://github.com/Mehedi-Hasan-18/job_tracker_frontend",
-    highlights: [
-      "Track Job Application",
-      "Auto email Remainder",
-      "Search and Filter Option",
-    ],
-  },
+  // jobtracker: {
+  //   id: "jobtracker",
+  //   title: "JobTrackr — Full Stack Web App",
+  //   image: job_tracker,
+  //   shortDescription:
+  //     "A Complete Web App to track your all job in one place",
+  //   fullDescription:
+  //     "With The Help of this Job Tracker Webapp you can manage your job application very smartly with one place. If You don't get any reply within 30 days it's automaticly go to Ghost option. EveryDay 9 am a self reminder email will remind you about your application.",
+  //   technologies: [
+  //     "Django REST Framework",
+  //     "Redis",
+  //     "JavaScript",
+  //     "React",
+  //     "Tailwind",
+  //     "JWT Auth",
+  //     "Django",
+  //     "PostgreSQL",
+  //     "Celery",
+  //   ],
+  //   features: [
+  //     "Built REST API with DRF serving 8 endpoints with JWT authentication.",
+  //     "Implemented async email reminders using Celery + Upstash Redis.",
+  //     "Auto-status system that detects ghosted applications after 30 days.",
+  //     "Deployed backend on Render, frontend on Nitlify with CI/CD via GitHub",
+  //   ],
+  //   images: [job_tracker],
+  //   liveUrl: "https://jobtraker.netlify.app/",
+  //   codeUrl: "https://github.com/Mehedi-Hasan-18/job_tracker_frontend",
+  //   highlights: [
+  //     "Track Job Application",
+  //     "Auto email Remainder",
+  //     "Search and Filter Option",
+  //   ],
+  // },
+  "tripbooking-public": {
+  id: "tripbooking-public",
+  title: "tripbooking.ai — AI Hotel Booking Platform",
+  image: tripbooking_public,
+  shortDescription:
+    "Contributed to the development of a production AI-powered hotel booking platform as a Frontend Developer.",
+  fullDescription:
+    "As a Frontend Developer at tripbooking.ai, I worked on the company's public-facing hotel booking platform, developing new features and maintaining existing ones. I built responsive and reusable UI components using React, TypeScript, and Tailwind CSS, integrated REST APIs, optimized application performance, and collaborated closely with UI/UX designers, backend engineers, and product managers to deliver a seamless hotel booking experience across desktop and mobile devices.",
+  technologies: [
+    "React",
+    "TypeScript",
+    "JavaScript",
+    "Tailwind CSS",
+    "REST API",
+    "Git",
+    "Responsive Design",
+    "Frontend Development",
+  ],
+  features: [
+    "Developed and maintained production-ready frontend features for the public booking platform.",
+    "Built reusable, responsive UI components using React, TypeScript, and Tailwind CSS.",
+    "Integrated REST APIs to display hotel listings, booking information, and dynamic content.",
+    "Optimized application performance to improve loading speed and user experience.",
+    "Collaborated with UI/UX designers and backend developers to deliver new features.",
+    "Participated in code reviews, bug fixes, and continuous improvements within an Agile development team.",
+  ],
+  images: [tripbooking_public],
+  liveUrl: "https://tripbooking.ai",
+  codeUrl: "",
+  highlights: [
+    "Frontend Development",
+    "Production Application",
+    "Responsive UI",
+    "REST API Integration",
+    "Performance Optimization",
+  ],
+},
 };
 
 const ProjectDetails = () => {

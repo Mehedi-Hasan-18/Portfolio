@@ -1,6 +1,6 @@
 import Home from "./Components/Home/Home";
 import LightRays from "./Components/LightRays";
-import SplashCursor from "./Components/SplashCursor";
+// import SplashCursor from "./Components/SplashCursor";
 
 function App() {
   return (
