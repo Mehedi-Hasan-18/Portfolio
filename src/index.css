@@ -1,2 +1,13 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+*,
+*::before,
+*::after {
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+}
+
+html {
+  scroll-behavior: auto !important;
+}

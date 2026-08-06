@@ -36,7 +36,7 @@ const Contact = () => {
   const [copied, setCopied] = useState("");
 
   const email = "mdmehedihasanroby@gmail.com";
-  const phone = "+60 174142969";
+  const phone = "+8801626759496";
 
   const copyToClipboard = async (text) => {
     try {

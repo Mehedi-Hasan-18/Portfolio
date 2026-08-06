@@ -18,7 +18,7 @@ const About = () => {
           <div className="flex-1">
             <h2 className="text-4xl font-extrabold mb-4 text-white text-center md:text-left">About Me</h2>
             <p className="text-gray-300 text-lg leading-relaxed mb-4 text-center md:text-left">
-              Hi, I'm <span className="text-white font-semibold">Mehedi Hasan</span>, a passionate <span className="text-blue-400">full-stack web developer</span> and software enthusiast currently studying <span className="text-blue-400">Diploma in Information Technology</span> at University of Cyberjaya, Malaysia.
+              Hi, I'm <span className="text-white font-semibold">Mehedi Hasan</span>, a passionate <span className="text-blue-400">full-stack web developer</span> and software enthusiast currently studying <span className="text-blue-400">Diploma in Information Technology</span> at University of Dhaka, Bangladesh.
             </p>
             <ul className="list-disc list-inside text-gray-400 mb-6 space-y-2 text-base">
               <li>Building modern, responsive web applications</li>
