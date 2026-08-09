@@ -92,7 +92,7 @@ const Home = () => {
               <button
                 onClick={() =>
                   (window.location.href =
-                    "https://drive.google.com/file/d/1PTSyG85u6f6AUDRrqnmjGuEVkO_K4oFw/view?usp=sharing")
+                    "https://drive.google.com/file/d/1xXeZUpnv1ldzd_Z6kDXDNd-Eg77JSyFV/view?usp=sharing")
                 }
                 className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 hover:shadow-lg hover:shadow-blue-500/25 transition-colors duration-300"
               >
