@@ -6,10 +6,6 @@ import PhiMart2 from "../assets/PhiMart2.png";
 import DailyNews from "../assets/DailyNews.png";
 import DailyNews1 from "../assets/DailyNews1.png";
 import DailyNews2 from "../assets/DailyNews2.png";
-import event_m from "../assets/event_m.png";
-import event_m1 from "../assets/event_m1.png";
-import event_m2 from "../assets/event_m2.png";
-import job_tracker from "../assets/job_tracker.png";
 import tripbooking_public from "../assets/tripbooking_public.png";
 
 const projectsData = {
@@ -223,7 +219,7 @@ const ProjectDetails = () => {
           {project.highlights.map((highlight) => (
             <div
               key={highlight}
-              className="bg-gradient-to-r from-indigo-500/20 to-emerald-500/20 border border-white/10 rounded-lg p-4"
+              className="bg-white/5 border border-white/10 rounded-lg p-4"
             >
               <p className="text-white font-semibold text-center">
                 {highlight}

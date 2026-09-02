@@ -40,35 +40,34 @@ const ProjectCard = ({ title, image, description, tags, liveUrl, codeUrl, projec
     >
 
       {/* Card body */}
-      <div className="group relative rounded-2xl border border-white/10 bg-gray-900/60 backdrop-blur p-5 shadow-lg h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:border-indigo-400/40 hover:shadow-2xl hover:shadow-indigo-500/20 hover:scale-[1.01]">
+      <div className="group relative rounded-2xl border border-white/10 bg-zinc-900/70 p-5 shadow-lg h-full transition-all duration-300 ease-out hover:-translate-y-2 hover:border-accent/30 hover:shadow-2xl hover:shadow-black/40 hover:scale-[1.01]">
         {/* Image */}
         <div className="relative overflow-hidden rounded-xl aspect-[21/9] mb-4">
           <img
             src={image}
             alt={title}
             loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+            decoding="async"
+            width={840}
+            height={360}
+            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
           />
-          {/* subtle gradient overlay bottom */}
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/40 to-transparent" />
         </div>
 
         {/* Title */}
-        <h3 className="lg:text-xl">
-          <span className=" text-white font-bold">
-            {title}
-          </span>
+        <h3 className="lg:text-xl font-bold text-white">
+          {title}
         </h3>
 
         {/* Description */}
-        <p className="mt-5 mb-5 italic text-white/80 text-xs md:text-sm lg:text-sm">{description.slice(0,150)+"..."}</p>
+        <p className="mt-3 mb-4 leading-relaxed text-zinc-400 text-xs md:text-sm lg:text-sm">{description.slice(0,150)+"..."}</p>
 
         {/* Tags */}
-        <div className="mt-3 mb-5 text-xs md:text-sm lg:text-sm flex flex-wrap gap-2">
+        <div className="mt-2 mb-5 flex flex-wrap gap-1.5">
           {tags?.map((t) => (
             <span
               key={t}
-              className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-white/90 text-sm max-w-[180px] min-w-0 px-3 py-2"
+              className="bg-white/5 border border-white/10 rounded-md text-zinc-300 text-xs px-2.5 py-1"
             >
               {t}
             </span>
@@ -83,7 +82,7 @@ const ProjectCard = ({ title, image, description, tags, liveUrl, codeUrl, projec
               target="_blank"
               rel="noreferrer"
               onClick={(e) => e.stopPropagation()} // prevent parent click
-              className="inline-flex items-center rounded-lg px-3 py-2 text-sm font-medium bg-gradient-to-r from-indigo-500 to-fuchsia-500 text-white shadow transition-transform duration-200 hover:brightness-110 hover:scale-105 active:scale-95"
+              className="inline-flex items-center rounded-lg px-3 py-2 text-sm font-semibold bg-accent text-zinc-950 transition-colors duration-200 hover:bg-accent/90 active:scale-95"
             >
               Live
             </a>
@@ -95,7 +94,7 @@ const ProjectCard = ({ title, image, description, tags, liveUrl, codeUrl, projec
               rel="noreferrer"
               onClick={(e) => e.stopPropagation()} // prevent parent click
               className="inline-flex items-center rounded-lg px-3 py-2 text-sm font-medium 
-              border border-white/15 text-white/90 transition-colors duration-200 hover:bg-white/10 hover:scale-105 active:scale-95"
+              border border-white/15 text-zinc-200 transition-colors duration-200 hover:border-accent hover:text-accent active:scale-95"
             >
               Code
             </a>
@@ -104,7 +103,7 @@ const ProjectCard = ({ title, image, description, tags, liveUrl, codeUrl, projec
             <button
               onClick={handleDetailsClick}
               className="inline-flex items-center rounded-lg px-3 py-2 text-sm font-medium 
-              bg-gradient-to-r from-cyan-700 to-fuchsia-900 shadow border border-white/15 text-white/90 transition-colors duration-200 hover:bg-white/10 hover:scale-105 active:scale-95"
+              border border-white/15 text-zinc-200 transition-colors duration-200 hover:border-accent hover:text-accent active:scale-95"
             >
               Details
             </button>

@@ -42,17 +42,17 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative mt-5 border-t border-gray-800  text-white overflow-hidden">
-      <div className="relative md:max-w-7xl w-11/12 mx-auto py-12">
+    <footer className="relative mt-5 border-t border-white/10 text-zinc-200 overflow-hidden">
+      <div className="relative md:max-w-7xl w-11/12 mx-auto py-14">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-3  gap-15 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <div className="mb-6">
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
-                Mehedi Hasan
+              <h3 className="font-display text-2xl font-medium text-white mb-4">
+                Mehedi Hasan<span className="text-accent">.</span>
               </h3>
-              <p className="text-gray-400 text-sm leading-relaxed mb-6">
+              <p className="text-zinc-400 text-sm leading-relaxed mb-6">
                 Crafting digital experiences with passion and precision. Let's
                 build something amazing together.
               </p>
@@ -60,28 +60,27 @@ const Footer = () => {
 
             {/* Contact Info */}
             <div className="space-y-3">
-              <div className="flex items-center text-gray-400 text-sm">
-                <MapPin className="w-4 h-4 mr-2 text-blue-400" />
-                Dhaka,Bangladesh
+              <div className="flex items-center text-zinc-400 text-sm">
+                <MapPin className="w-4 h-4 mr-2 text-accent" />
+                Dhaka, Bangladesh
               </div>
-              <div className="flex items-center text-gray-400 text-sm">
-                <Phone className="w-4 h-4 mr-2 text-blue-400" />
+              <div className="flex items-center text-zinc-400 text-sm">
+                <Phone className="w-4 h-4 mr-2 text-accent" />
                 +8801626759496
               </div>
-              <div className="flex items-center text-gray-400 text-sm">
-                <Mail className="w-4 h-4 mr-2 text-blue-400" />
+              <div className="flex items-center text-zinc-400 text-sm">
+                <Mail className="w-4 h-4 mr-2 text-accent" />
                 mdmehedihasanroby@gmail.com
               </div>
             </div>
           </div>
 
-
           {/* Newsletter */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-white">
+            <h4 className="text-lg font-medium mb-6 text-white">
               Stay Updated
             </h4>
-            <p className="text-gray-400 text-sm mb-4">
+            <p className="text-zinc-400 text-sm mb-4">
               Subscribe to get the latest updates and insights.
             </p>
             <div className="space-y-3">
@@ -90,11 +89,11 @@ const Footer = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
-                className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white text-sm transition-all duration-300"
+                className="w-full px-4 py-2 bg-zinc-900 border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-accent focus:border-transparent text-white text-sm transition-all duration-300"
               />
               <button
                 onClick={handleNewsletter}
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 px-4 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 text-sm font-medium"
+                className="w-full bg-white text-zinc-950 py-2 px-4 rounded-lg hover:bg-accent transition-all duration-300 text-sm font-semibold"
               >
                 Subscribe
               </button>
@@ -102,15 +101,15 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Social Links */}
-        <div className="border-t border-gray-800 pt-8 mb-8">
+{/* Social Links */}
+        <div className="border-t border-white/10 pt-8 mb-8">
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <div className="flex space-x-6 mb-4 sm:mb-0 ">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.href}
-                  className="text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110"
+                  className="text-zinc-400 hover:text-accent transition-all duration-300 transform hover:scale-110"
                   aria-label={social.name}
                 >
                   <social.icon className="w-5 h-5 " />
@@ -121,7 +120,7 @@ const Footer = () => {
             {/* Back to Top Button */}
             <button
               onClick={scrollToTop}
-              className="flex items-center text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-105 group"
+              className="flex items-center text-zinc-400 hover:text-white transition-all duration-300 transform hover:scale-105 group"
             >
               <span className="text-sm mr-2">Back to top</span>
               <ArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform duration-300" />
@@ -130,25 +129,25 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 pt-6">
+        <div className="border-t border-white/10 pt-6">
           <div className="flex flex-col sm:flex-row justify-between items-center">
-            <span className="text-gray-400 text-sm flex items-center mb-2 sm:mb-0">
+            <span className="text-zinc-400 text-sm flex items-center mb-2 sm:mb-0">
               © Made with
-              <Heart className="w-4 h-4 mx-1 text-red-500 animate-pulse" />
+              <Heart className="w-4 h-4 mx-1 text-accent animate-pulse" />
               and
-              <Coffee className="w-4 h-4 mx-1 text-yellow-500" />
+              <Coffee className="w-4 h-4 mx-1 text-accent" />
               in Dhaka.
             </span>
             <div className="flex space-x-6 text-sm">
               <a
                 href="#"
-                className="text-gray-400 hover:text-white transition-colors duration-300"
+                className="text-zinc-400 hover:text-white transition-colors duration-300"
               >
                 Privacy Policy
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-white transition-colors duration-300"
+                className="text-zinc-400 hover:text-white transition-colors duration-300"
               >
                 Terms of Service
               </a>

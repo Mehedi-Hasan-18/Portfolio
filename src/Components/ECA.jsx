@@ -37,18 +37,21 @@ const ecaItems = [
 
 const ECA = () => {
   return (
-    <section className=" text-gray-200">
-      <div className="max-w-6xl mx-auto px-6 py-12">
-        <div className="text-3xl text-center md:text-4xl font-bold text-white mb-3">
-          <ScrollFloat
-            animationDuration={1}
-            ease="back.inOut(2)"
-            scrollStart="center bottom+=50%"
-            scrollEnd="bottom bottom-=40%"
-            stagger={0.03}
-          >
-            Extra‑Curricular Activities
-          </ScrollFloat>
+    <section className=" text-zinc-100">
+      <div className="max-w-6xl mx-auto px-6 py-16 md:py-20">
+        <div className="text-center mb-12">
+          <p className="eyebrow">04 — Beyond the Code</p>
+          <div className="text-4xl mt-4 text-center md:text-5xl font-black tracking-tight text-white">
+            <ScrollFloat
+              animationDuration={1}
+              ease="back.inOut(2)"
+              scrollStart="center bottom+=50%"
+              scrollEnd="bottom bottom-=40%"
+              stagger={0.03}
+            >
+              Extra-Curricular Activities
+            </ScrollFloat>
+          </div>
         </div>
 
         <AnimatedContent
@@ -70,12 +73,9 @@ const ECA = () => {
                 href={item.href || "#"}
                 target={item.href ? "_blank" : "_self"}
                 rel={item.href ? "noreferrer" : undefined}
-                className="group relative block rounded-2xl border border-white/10 bg-gray-900/60 p-6 backdrop-blur
-                         transition-all duration-300 hover:-translate-y-2 hover:border-white/30 hover:shadow-xl hover:shadow-indigo-500/10"
+                className="group relative block rounded-2xl border border-white/10 bg-zinc-900/70 p-6
+                         transition-all duration-300 hover:-translate-y-2 hover:border-accent/30 hover:shadow-lg hover:shadow-black/40"
               >
-                {/* subtle gradient ring on hover */}
-                <span className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
                 <div className="flex items-start gap-3">
                   <div className="w-12 h-12 flex-shrink-0">
                     <img
@@ -97,11 +97,11 @@ const ECA = () => {
                 <p className="mt-4 text-sm text-gray-400">{item.description}</p>
 
                 <div className="mt-5 flex items-center justify-between">
-                  <span className="inline-flex items-center rounded-full border border-gray-700 px-2.5 py-0.5 text-xs text-gray-300">
+                  <span className="inline-flex items-center rounded-full border border-white/10 px-2.5 py-0.5 text-xs text-zinc-400">
                     {item.tag}
                   </span>
                   {item.href && (
-                    <span className="text text-blue-400">View →</span>
+                    <span className="text text-accent">View →</span>
                   )}
                 </div>
               </a>

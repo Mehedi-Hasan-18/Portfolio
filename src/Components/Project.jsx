@@ -1,7 +1,6 @@
 import React from "react";
 import PhiMart from "../assets/PhiMart.png";
 import DailyNews from "../assets/Daily News.png";
-import job_tracker from "../assets/job_tracker.png";
 import tripbooking_public from "../assets/tripbooking_public.png";
 import ProjectCard from "./ProjectCard";
 import NoImg from "../assets/No Photo Img.jpg";
@@ -93,9 +92,10 @@ const Project = () => {
       threshold={0.1}
       delay={0}
     >
-      <section className="md:max-w-7xl md:mx-auto md:px-4 px-6">
-        <div className="text-center mb-12">
-          <div className="text-3xl mt-5 text-center md:text-4xl font-bold text-white mb-3">
+      <section id="work" className="md:max-w-7xl md:mx-auto md:px-4 px-6 py-20 md:py-24">
+        <div className="text-center mb-14">
+          <p className="eyebrow">01 — Experience & Projects</p>
+          <div className="text-4xl mt-4 text-center md:text-5xl font-black tracking-tight text-white">
             <ScrollFloat
               animationDuration={1}
               ease="back.inOut(2)"
@@ -106,7 +106,7 @@ const Project = () => {
               Professional Experience & Projects
             </ScrollFloat>
           </div>
-          <p className="text-white/70 text-sm md:text-base">
+          <p className="text-zinc-500 text-sm md:text-base mt-4">
             Highlights of my career and key projects showcasing my skills &
             impact.
           </p>
@@ -114,7 +114,7 @@ const Project = () => {
         {/* Exprience Section */}
         <Experience />
         {/* Grid layout */}
-        <div className="text-3xl text-center md:text-4xl font-bold text-white mb-3">
+        <div className="text-4xl text-center md:text-5xl font-black tracking-tight text-white mt-8 mb-3">
           <ScrollFloat
             animationDuration={1}
             ease="back.inOut(2)"

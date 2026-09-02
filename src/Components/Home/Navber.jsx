@@ -1,8 +1,26 @@
+import { useEffect, useState } from "react";
 import { Download, Home, UserRound, FolderKanban, Phone, Sparkles } from "lucide-react";
 import { useLocation } from "react-router-dom";
 
 const Navber = () => {
   const location = useLocation();
+  const [isShrunk, setIsShrunk] = useState(false);
+
+  useEffect(() => {
+    let lastY = window.scrollY;
+    const handleScroll = () => {
+      const y = window.scrollY;
+      if (y > 80 && y > lastY) {
+        setIsShrunk(true);
+      } else if (y < lastY) {
+        setIsShrunk(false);
+      }
+      lastY = y;
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const navItems = [
     { name: "Home", href: "/", icon: Home },
     { name: "About", href: "about", icon: UserRound },
@@ -12,30 +30,37 @@ const Navber = () => {
 
   return (
     <>
-      <nav className="text-black backdrop-blur-lg border-b border-gray-200/50 shadow-lg sticky top-0 z-50 bg-transparent">
-      <div className="md:max-w-7xl md:mx-auto w-11/12 mx-auto">
-        <div className="flex justify-between items-center h-16 ">
+      <nav className="sticky top-3 z-50 hidden w-full px-3 transition-all duration-300 md:block">
+        <div
+          className={`mx-auto flex items-center justify-between rounded-full border border-white/10 bg-zinc-900/50 backdrop-blur-xl shadow-lg shadow-black/20 transition-all duration-300 ${
+            isShrunk ? "max-w-2xl h-11 px-3 sm:px-4" : "max-w-3xl h-14 px-4 sm:px-6"
+          }`}
+        >
           {/* Logo/Brand */}
           <div className="flex-shrink-0">
             <a
               href="/"
-              className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300"
+              className={`font-display font-bold tracking-tight text-white hover:text-accent transition-all duration-300 ${
+                isShrunk ? "text-lg sm:text-xl" : "text-xl sm:text-2xl"
+              }`}
             >
-              Mehedi Hasan
+              Mehedi<span className="text-accent">.</span>
             </a>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="flex items-center gap-1">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="group flex items-center px-3 py-2 rounded-lg text-sm font-medium text-white hover:text-blue-600 transition-all duration-300 relative"
+                  className={`group relative flex items-center rounded-lg text-sm font-medium text-zinc-400 hover:text-white transition-all duration-300 ${
+                    isShrunk ? "px-2 py-1 text-xs" : "px-3 py-1.5"
+                  }`}
                 >
                   {item.name}
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full"></span>
+                  <span className="absolute bottom-0 left-3 right-3 h-px bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full"></span>
                 </a>
               ))}
             </div>
@@ -47,19 +72,19 @@ const Navber = () => {
               href="https://drive.google.com/file/d/1xXeZUpnv1ldzd_Z6kDXDNd-Eg77JSyFV/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105"
+              className={`inline-flex items-center rounded-full text-white text-sm font-medium border border-white/15 hover:border-accent hover:text-accent transition-all duration-300 ${
+                isShrunk ? "px-3 py-1" : "px-4 py-1.5"
+              }`}
             >
               <Download className="w-4 h-4 mr-2" />
               Resume
             </a>
           </div>
-
         </div>
-      </div>
-    </nav>
+      </nav>
 
-      <div className="md:hidden fixed bottom-2 left-1/2 z-[60] w-[calc(100%-0.75rem)] max-w-[20rem] -translate-x-1/2">
-        <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-gray-900/90 px-1.5 py-1.5 shadow-2xl shadow-black/40 backdrop-blur-xl">
+      <div className="md:hidden fixed bottom-[max(0.5rem,env(safe-area-inset-bottom))] left-1/2 z-[60] w-[calc(100%-0.75rem)] max-w-[20rem] -translate-x-1/2">
+        <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-zinc-900/95 px-1.5 py-1.5 shadow-2xl shadow-black/40 backdrop-blur-xl">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = item.href === "/"
@@ -72,8 +97,8 @@ const Navber = () => {
                 href={item.href}
                 className={`flex flex-1 items-center justify-center rounded-xl p-1.5 transition-all duration-200 ${
                   isActive
-                    ? "bg-blue-500/20 text-blue-400 shadow-[0_0_0_1px_rgba(59,130,246,0.25)]"
-                    : "text-gray-300 hover:bg-white/10 hover:text-white"
+                    ? "bg-accent/10 text-accent shadow-[0_0_0_1px_rgba(201,168,106,0.3)]"
+                    : "text-zinc-400 hover:bg-white/10 hover:text-white"
                 }`}
               >
                 <Icon className="h-5 w-5" />
@@ -84,7 +109,7 @@ const Navber = () => {
             href="https://drive.google.com/file/d/1xXeZUpnv1ldzd_Z6kDXDNd-Eg77JSyFV/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-1 items-center justify-center rounded-xl p-1.5 text-gray-300 transition-all duration-200 hover:bg-white/10 hover:text-white"
+            className="flex flex-1 items-center justify-center rounded-xl p-1.5 text-zinc-400 transition-all duration-200 hover:bg-white/10 hover:text-white"
           >
             <Download className="h-5 w-5" />
           </a>

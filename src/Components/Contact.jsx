@@ -58,13 +58,14 @@ const Contact = () => {
   };
 
   return (
-    <section className=" text-gray-200">
+    <section className=" text-zinc-100">
       <div className="md:max-w-6xl md:mx-auto md:px-6 md:py-12 m-4">
-        <header className="text-center mb-10">
-          <h1 className="text-3xl md:text-4xl font-bold text-blue-600">
+        <header className="text-center mb-12">
+          <p className="eyebrow">Say Hello</p>
+          <h1 className="text-4xl md:text-5xl font-black tracking-tight text-white mt-4">
             Contact
           </h1>
-          <p className="text-gray-400 mt-2">
+          <p className="text-zinc-400 mt-4">
             Feel free to reach out—email, phone, or any of my socials.
           </p>
         </header>
@@ -72,23 +73,22 @@ const Contact = () => {
         <div className="grid gap-8 grid-cols-1 md:grid-cols-2">
           {/* Card: Direct Contact */}
           <div
-            className="relative rounded-2xl bg-gray-900/70 border border-gray-800 p-6 backdrop-blur
-                         transition-transform duration-300 hover:-translate-y-1 hover:border-white/50 hover:shadow-xl "
+            className="relative rounded-2xl bg-zinc-900/70 border border-white/10 p-6
+                         transition-transform duration-300 hover:-translate-y-1 hover:border-white/25"
           >
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 to-transparent opacity-0 pointer-events-none"></div>
             <h2 className="text-xl font-semibold text-white">Get in touch</h2>
-            <p className="text-gray-400 text mt-1">
+            <p className="text-zinc-400 text mt-1">
               I try to respond within 24–48 hours.
             </p>
 
             <div className="mt-6 space-y-4">
               {/* Email */}
-              <div className="flex items-center hover:border-white/50 transition justify-between gap-3 rounded-xl border border-gray-800 bg-gray-950/60 p-4">
+              <div className="flex items-center hover:border-white/30 transition justify-between gap-3 rounded-xl border border-white/10 bg-zinc-950/60 p-4">
                 <div className="min-w-0">
-                  <p className="font-bold text-gray-400">Email</p>
+                  <p className="font-bold text-zinc-400">Email</p>
                   <a
                     href={`mailto:${email}`}
-                    className="truncate font-medium text-gray-200 hover:text-blue-400 transition"
+                    className="truncate font-medium text-zinc-200 hover:text-accent transition"
                     title={email}
                   >
                     {email}
@@ -97,13 +97,13 @@ const Contact = () => {
                 <div className="flex items-center gap-2">
                   <a
                     href={`mailto:${email}`}
-                    className="rounded-lg border border-gray-700 px-3 py-1.5 text-sm hover:border-blue-500 hover:text-blue-400 transition"
+                    className="rounded-lg border border-white/15 px-3 py-1.5 text-sm hover:border-accent hover:text-accent transition"
                   >
                     Write
                   </a>
                   <button
                     onClick={() => copyToClipboard(email)}
-                    className="rounded-lg border border-gray-700 px-3 py-1.5 text-sm hover:border-gray-500 transition"
+                    className="rounded-lg border border-white/15 px-3 py-1.5 text-sm hover:border-zinc-400 transition"
                     aria-label="Copy email"
                   >
                     {copied === email ? "Copied!" : "Copy"}
@@ -112,12 +112,12 @@ const Contact = () => {
               </div>
 
               {/* Phone */}
-              <div className="flex items-center justify-between gap-3 rounded-xl border border-gray-800 bg-gray-950/60 p-4 hover:border-white/50 transition">
+              <div className="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-zinc-950/60 p-4 hover:border-white/30 transition">
                 <div className="min-w-0 ">
-                  <p className="font-bold text-gray-400">Phone</p>
+                  <p className="font-bold text-zinc-400">Phone</p>
                   <a
                     href={`tel:${phone.replace(/\s+/g, "")}`}
-                    className="truncate font-medium text-gray-200 hover:text-green-400 transition"
+                    className="truncate font-medium text-zinc-200 hover:text-accent transition"
                     title={phone}
                   >
                     {phone}
@@ -127,13 +127,13 @@ const Contact = () => {
                   <a
                   target="_blank"
                     href='https://wa.link/8i0d7s'
-                    className="rounded-lg border border-gray-700 px-3 py-1.5 text-sm hover:border-green-500 hover:text-green-400 transition"
+                    className="rounded-lg border border-white/15 px-3 py-1.5 text-sm hover:border-accent hover:text-accent transition"
                   >
                     WhatsAPP
                   </a>
                   <button
                     onClick={() => copyToClipboard(phone)}
-                    className="rounded-lg border border-gray-700 px-3 py-1.5 text-sm hover:border-gray-500 transition"
+                    className="rounded-lg border border-white/15 px-3 py-1.5 text-sm hover:border-zinc-400 transition"
                     aria-label="Copy phone"
                   >
                     {copied === phone ? "Copied!" : "Copy"}
@@ -146,7 +146,7 @@ const Contact = () => {
             <form onSubmit={handleMailto} className="mt-6">
               <button
                 type="submit"
-                className="w-full rounded-xl bg-white/10 px-4 py-3 text-sm font-medium text-white hover:bg-white/20 transition border border-gray-700"
+                className="w-full rounded-xl bg-white/10 px-4 py-3 text-sm font-medium text-white hover:bg-accent hover:text-zinc-950 transition border border-white/10"
               >
                 Quick Email
               </button>
@@ -154,9 +154,9 @@ const Contact = () => {
           </div>
 
           {/* Card: Social Profiles */}
-          <div className="rounded-2xl border bg-gray-900/70 border-gray-800 p-6 shadow-xl backdrop-blur hover:-translate-y-1 hover:border-white/50 hover:shadow-xl">
+          <div className="rounded-2xl border bg-zinc-900/70 border-white/10 p-6 hover:-translate-y-1 hover:border-white/25 transition-transform duration-300">
             <h2 className="text-xl font-semibold text-white">Find me online</h2>
-            <p className="text-gray-400  mt-1">
+            <p className="text-zinc-400  mt-1">
               Connect with me on these platforms:
             </p>
 
@@ -167,10 +167,10 @@ const Contact = () => {
                     href={s.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="group flex items-center justify-between gap-3 rounded-xl border border-gray-800 bg-gray-950/60 p-4 hover:border-white/50 transition"
+                    className="group flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-zinc-950/60 p-4 hover:border-white/30 transition"
                   >
                     <div className="flex items-center gap-3 min-w-0">
-                      <div className="w-9 h-9 rounded-lg overflow-hidden border border-gray-700 flex-shrink-0">
+                      <div className="w-9 h-9 rounded-lg overflow-hidden border border-white/10 flex-shrink-0">
                         <img
                           src={s.img}
                           alt={`${s.name} logo`}
@@ -178,13 +178,13 @@ const Contact = () => {
                         />
                       </div>
                       <div className="min-w-0">
-                        <p className="font-medium text-gray-200">{s.name}</p>
-                        <p className="text-sm text-gray-400 truncate">
+                        <p className="font-medium text-zinc-200">{s.name}</p>
+                        <p className="text-sm text-zinc-400 truncate">
                           {s.handle}
                         </p>
                       </div>
                     </div>
-                    <span className=" text-blue-400 opacity-0 group-hover:opacity-100 transition">
+                    <span className=" text-accent opacity-0 group-hover:opacity-100 transition">
                       Visit →
                     </span>
                   </a>
@@ -196,8 +196,8 @@ const Contact = () => {
 
         {/* Optional: Footer note or CTA */}
         <div className="text-center mt-10">
-          <p className="text-gray-200">
-            Let's connect! Drop me a message and we'll plan a <Coffee className="inline-block w-4 h-4 mx-1 text-yellow-500 align-[-0.15em]" /> discussion.
+          <p className="text-zinc-300">
+            Let's connect! Drop me a message and we'll plan a <Coffee className="inline-block w-4 h-4 mx-1 text-accent align-[-0.15em]" /> discussion.
           </p>
         </div>
       </div>

@@ -6,7 +6,7 @@ import Project from "../Project";
 import Skills from "../Skills";
 import Education from "../Education";
 import ECA from "../ECA";
-import { Download, Github, Linkedin, Youtube } from "lucide-react";
+import { ArrowDown, Download, Github, Linkedin, Youtube } from "lucide-react";
 import { useState } from "react";
 import ScrambleText from "../ScrambleText";
 import AnimatedContent from "../AnimatedContent";
@@ -44,35 +44,39 @@ const Home = () => {
     codeforce: "https://codeforces.com/profile/mehedi_hasan_18",
     codechef: "https://www.codechef.com/users/mehedi_hasan18",
   };
+
+  const stats = [
+    { value: "2★", label: "CodeChef" },
+    { value: "1500+", label: "YouTube" },
+    { value: "1+", label: "Years Building" },
+  ];
+
   return (
-    <div className="relative text-white min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900">
-      {/* Glowing orb effect */}
-      {/* <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl opacity-20"></div> */}
-      <div className="max-w-7xl mx-auto px-6 md:px-10 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <div className="relative text-zinc-100 min-h-screen">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 pt-12 md:pt-20 pb-16">
+        <div className="grid lg:grid-cols-2 gap-14 items-center">
           {/* Left Side: Text Content */}
-          <div className="space-y-6 z-10">
-            <p className="text-gray-400 text-sm md:text-xl">Hi, my name is</p>
+          <div className="space-y-7 z-10">
+            <p className="eyebrow">
+              Software Engineer
+            </p>
             <ScrambleText
               text="Mehedi Hasan"
               duration={900}
-              className="block text-5xl font-bold tracking-tight md:text-7xl"
+              className="block font-black text-5xl tracking-tight text-white md:text-7xl"
             />
 
-            <div className="min-h-8 text-xl font-semibold text-blue-400 md:text-2xl">
+            <div className="min-h-8 text-xl font-bold md:text-2xl">
               <ScrambleText
                 texts={["Software Engineer", "Content Creator", "Problem Solver"]}
                 interval={2000}
                 duration={650}
                 loop
-                className="inline-block"
+                className="inline-block text-accent"
               />
             </div>
-            {/* <p className="text-blue-400 text-xl md:text-2xl font-semibold">
-              
-            </p> */}
 
-            <p className="text-gray-300 leading-relaxed max-w-xl text-sm md:text-base">
+            <p className="leading-relaxed max-w-xl text-sm md:text-base text-zinc-400">
               I'm a problem-solver at heart who loves turning ideas into working
               systems. Whether it's designing backend infrastructure, building
               full-stack features, or integrating AI to enhance functionality
@@ -80,12 +84,12 @@ const Home = () => {
               reliable, and built with purpose.
             </p>
 
-            <div className="flex gap-4 pt-4">
+            <div className="flex flex-wrap gap-4 pt-2">
               <button
                 onClick={() =>
                   (window.location.href = "mailto:mdmehedihasanroby@mail.com")
                 }
-                className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition-colors duration-200"
+                className="px-7 py-3 bg-white text-zinc-950 rounded-lg text-sm font-semibold transition-colors duration-200 hover:bg-accent"
               >
                 Get In Touch
               </button>
@@ -94,7 +98,7 @@ const Home = () => {
                   (window.location.href =
                     "https://drive.google.com/file/d/1xXeZUpnv1ldzd_Z6kDXDNd-Eg77JSyFV/view?usp=sharing")
                 }
-                className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 hover:shadow-lg hover:shadow-blue-500/25 transition-colors duration-300"
+                className="inline-flex items-center px-6 py-3 text-white rounded-lg text-sm font-medium border border-white/15 transition-colors duration-300 hover:border-accent hover:text-accent"
               >
                 <Download className="w-4 h-4 mr-2" />
                 Resume
@@ -103,23 +107,18 @@ const Home = () => {
           </div>
 
           {/* Right Side: Profile Image */}
-          <div className="flex justify-center lg:justify-end z-10">
-            <div className="relative isolate">
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative flex flex-col items-center">
               <div
                 aria-hidden="true"
-                className="absolute -inset-8 -z-10 rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.42)_0%,rgba(147,51,234,0.28)_40%,rgba(15,23,42,0)_72%)] blur-3xl"
+                className="absolute -inset-10 -z-10 rounded-full border border-white/5"
               ></div>
               <div
                 aria-hidden="true"
-                className="absolute inset-4 -z-10 rounded-full bg-blue-500/25 blur-2xl animate-pulse"
+                className="absolute inset-5 -z-10 rounded-full border border-accent/20"
               ></div>
-              {/* Profile image container */}
-              <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-96 md:h-96 rounded-full overflow-hidden border border-blue-300/20 shadow-2xl shadow-blue-500/25">
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 z-10 rounded-full bg-[linear-gradient(135deg,rgba(255,255,255,0.22),rgba(255,255,255,0)_35%,rgba(59,130,246,0.18)_100%)]"
-                ></div>
-                <div className="w-full h-full bg-gradient-to-br from-blue-900 to-purple-900 relative">
+              <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-96 md:h-96 rounded-full overflow-hidden border border-white/10">
+                <div className="relative w-full h-full bg-zinc-900">
                   <img
                     src={image}
                     alt="Mehedi Hasan"
@@ -128,62 +127,88 @@ const Home = () => {
                 </div>
               </div>
               {/* Social Media Links */}
-              <div className="flex justify-center gap-4 mt-6">
+              <div className="flex justify-center gap-2.5 mt-7">
                 <a
                   href={socialLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-gray-800 hover:bg-blue-600 rounded-lg transition-colors duration-300 group"
+                  className="p-2.5 bg-zinc-900 hover:bg-accent rounded-full border border-white/10 hover:border-accent transition-colors duration-300 group"
                   aria-label="LinkedIn"
                 >
-                  <Linkedin className="w-6 h-6 text-gray-300 group-hover:text-white" />
+                  <Linkedin className="w-4 h-4 text-zinc-400 group-hover:text-zinc-950" />
                 </a>
 
                 <a
                   href={socialLinks.youtube}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-gray-800 hover:bg-red-600 rounded-lg transition-colors duration-300 group"
+                  className="p-2.5 bg-zinc-900 hover:bg-accent rounded-full border border-white/10 hover:border-accent transition-colors duration-300 group"
                   aria-label="YouTube"
                 >
-                  <Youtube className="w-6 h-6 text-gray-300 group-hover:text-white" />
+                  <Youtube className="w-4 h-4 text-zinc-400 group-hover:text-zinc-950" />
                 </a>
 
                 <a
                   href={socialLinks.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-gray-800 hover:bg-purple-600 rounded-lg transition-colors duration-300 group"
+                  className="p-2.5 bg-zinc-900 hover:bg-accent rounded-full border border-white/10 hover:border-accent transition-colors duration-300 group"
                   aria-label="GitHub"
                 >
-                  <Github className="w-6 h-6 text-gray-300 group-hover:text-white" />
+                  <Github className="w-4 h-4 text-zinc-400 group-hover:text-zinc-950" />
                 </a>
                 <a
                   href={socialLinks.codechef}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-gray-800 hover:bg-fuchsia-300 rounded-lg transition-colors duration-300 group"
-                  aria-label="GitHub"
+                  className="p-2.5 bg-zinc-900 hover:bg-accent rounded-full border border-white/10 hover:border-accent transition-colors duration-300 group"
+                  aria-label="CodeChef"
                 >
                   <img
                     src={codechef}
-                    className="w-6 h-6 text-gray-300 group-hover:text-white"
+                    className="w-4 h-4 object-contain opacity-80 group-hover:opacity-100"
+                    alt="CodeChef"
                   />
                 </a>
                 <a
                   href={socialLinks.codeforce}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-gray-800 hover:bg-cyan-500 rounded-lg transition-colors duration-300 group"
-                  aria-label="GitHub"
+                  className="p-2.5 bg-zinc-900 hover:bg-accent rounded-full border border-white/10 hover:border-accent transition-colors duration-300 group"
+                  aria-label="Codeforces"
                 >
                   <img
                     src={codeforce}
-                    className="w-6 h-6 text-gray-300 group-hover:text-white"
+                    className="w-4 h-4 object-contain opacity-80 group-hover:opacity-100"
+                    alt="Codeforces"
                   />
                 </a>
               </div>
+
+              {/* Stat row */}
+              <div className="mt-8 grid w-full max-w-sm grid-cols-3 divide-x divide-white/10 border-t border-white/10 pt-6 text-center">
+                {stats.map((stat) => (
+                  <div key={stat.label} className="px-2">
+                    <p className="font-black text-2xl text-white">
+                      {stat.value}
+                    </p>
+                    <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.15em] text-zinc-500">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
+          </div>
+        </div>
+
+        {/* Scroll cue */}
+        <div aria-hidden="true" className="mt-20 flex justify-center">
+          <div className="flex flex-col items-center gap-2 text-zinc-600">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.3em]">
+              Scroll
+            </span>
+            <ArrowDown className="h-4 w-4 animate-bounce" />
           </div>
         </div>
       </div>
@@ -204,9 +229,11 @@ const Home = () => {
         scale={1}
         threshold={0.1}
         delay={0}
+        className="py-20 md:py-24"
       >
-        <div className="text-center mb-12">
-          <div className="text-3xl text-center md:text-4xl font-bold text-white mb-3">
+        <div className="text-center">
+          <p className="eyebrow">05 — Contact</p>
+          <div className="text-4xl mt-4 text-center md:text-5xl font-black tracking-tight text-white">
             <ScrollFloat
               animationDuration={1}
               ease="back.inOut(2)"
@@ -217,30 +244,29 @@ const Home = () => {
               Get in touch
             </ScrollFloat>
           </div>
-          <p className="text-white/70 text-sm md:text-base">
+          <p className="text-zinc-500 text-sm md:text-base mt-4">
             I try to respond within 24–48 hours.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 pb-5">
           <div></div>
           <div
-            className="relative rounded-2xl bg-gray-900/70 border border-gray-800 p-6 backdrop-blur
-                         transition-transform duration-300 hover:-translate-y-1 hover:border-white/50 hover:shadow-xl "
+            className="relative rounded-2xl bg-zinc-900/70 border border-white/10 p-6
+                         transition-transform duration-300 hover:-translate-y-1 hover:border-white/25"
           >
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 to-transparent opacity-0 pointer-events-none"></div>
             <h2 className="text-xl font-semibold text-white">Get in touch</h2>
-            <p className="text-gray-400 text mt-1">
+            <p className="text-zinc-400 text mt-1">
               I try to respond within 24–48 hours.
             </p>
 
             <div className="mt-6 space-y-4">
               {/* Email */}
-              <div className="flex items-center hover:border-white/50 transition justify-between gap-3 rounded-xl border border-gray-800 bg-gray-950/60 p-4">
+              <div className="flex items-center hover:border-white/30 transition justify-between gap-3 rounded-xl border border-white/10 bg-zinc-950/60 p-4">
                 <div className="min-w-0">
-                  <p className="font-bold text-gray-400">Email</p>
+                  <p className="font-bold text-zinc-400">Email</p>
                   <a
                     href={`mailto:${email}`}
-                    className="truncate font-medium text-gray-200 hover:text-blue-400 transition"
+                    className="truncate font-medium text-zinc-200 hover:text-accent transition"
                     title={email}
                   >
                     {email}
@@ -249,13 +275,13 @@ const Home = () => {
                 <div className="flex items-center gap-2">
                   <a
                     href={`mailto:${email}`}
-                    className="rounded-lg border border-gray-700 px-3 py-1.5 text-sm hover:border-blue-500 hover:text-blue-400 transition"
+                    className="rounded-lg border border-white/15 px-3 py-1.5 text-sm hover:border-accent hover:text-accent transition"
                   >
                     Write
                   </a>
                   <button
                     onClick={() => copyToClipboard(email)}
-                    className="rounded-lg border border-gray-700 px-3 py-1.5 text-sm hover:border-gray-500 transition"
+                    className="rounded-lg border border-white/15 px-3 py-1.5 text-sm hover:border-zinc-400 transition"
                     aria-label="Copy email"
                   >
                     {copied === email ? "Copied!" : "Copy"}
@@ -264,12 +290,12 @@ const Home = () => {
               </div>
 
               {/* Phone */}
-              <div className="flex items-center justify-between gap-3 rounded-xl border border-gray-800 bg-gray-950/60 p-4 hover:border-white/50 transition">
+              <div className="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-zinc-950/60 p-4 hover:border-white/30 transition">
                 <div className="min-w-0 ">
-                  <p className="font-bold text-gray-400">Phone</p>
+                  <p className="font-bold text-zinc-400">Phone</p>
                   <a
                     href={`tel:${phone.replace(/\s+/g, "")}`}
-                    className="truncate font-medium text-gray-200 hover:text-green-400 transition"
+                    className="truncate font-medium text-zinc-200 hover:text-accent transition"
                     title={phone}
                   >
                     {phone}
@@ -279,13 +305,13 @@ const Home = () => {
                   <a
                     target="_blank"
                     href="https://wa.link/8i0d7s"
-                    className="rounded-lg border border-gray-700 px-3 py-1.5 text-sm hover:border-green-500 hover:text-green-400 transition"
+                    className="rounded-lg border border-white/15 px-3 py-1.5 text-sm hover:border-accent hover:text-accent transition"
                   >
                     WhatsAPP
                   </a>
                   <button
                     onClick={() => copyToClipboard(phone)}
-                    className="rounded-lg border border-gray-700 px-3 py-1.5 text-sm hover:border-gray-500 transition"
+                    className="rounded-lg border border-white/15 px-3 py-1.5 text-sm hover:border-zinc-400 transition"
                     aria-label="Copy phone"
                   >
                     {copied === phone ? "Copied!" : "Copy"}
@@ -298,7 +324,7 @@ const Home = () => {
             <form onSubmit={handleMailto} className="mt-6">
               <button
                 type="submit"
-                className="w-full rounded-xl bg-white/10 px-4 py-3 text-sm font-medium text-white hover:bg-white/20 transition border border-gray-700"
+                className="w-full rounded-xl bg-white/10 px-4 py-3 text-sm font-medium text-white hover:bg-accent hover:text-zinc-950 transition border border-white/10"
               >
                 Quick Email
               </button>

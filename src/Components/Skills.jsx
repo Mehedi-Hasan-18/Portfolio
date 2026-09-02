@@ -10,7 +10,6 @@ const Skills = () => {
     {
       title: "Frontend",
       icon: Code,
-      color: "from-blue-500 to-cyan-500",
       skills: [
         "HTML",
         "CSS",
@@ -23,19 +22,16 @@ const Skills = () => {
     {
       title: "Backend",
       icon: Server,
-      color: "from-green-500 to-emerald-500",
       skills: ["Python", "Django", "Django REST Framework", "Node.js (basic)"],
     },
     {
       title: "Databases",
       icon: Database,
-      color: "from-purple-500 to-pink-500",
       skills: ["PostgreSQL", "Firebase", "Supabase"],
     },
     {
       title: "DevOps & Tools",
       icon: Wrench,
-      color: "from-orange-500 to-red-500",
       skills: [
         "Git/GitHub",
         "Vercel",
@@ -48,7 +44,6 @@ const Skills = () => {
     {
       title: "Core Competencies",
       icon: Zap,
-      color: "from-yellow-500 to-amber-500",
       skills: [
         "Full-Stack Development",
         "API Design",
@@ -62,9 +57,10 @@ const Skills = () => {
   ];
 
   return (
-    <section className="max-w-7xl mx-auto px-4 md:px-6 py-12 mt-10">
-      <div className="text-center mb-12">
-        <div className="text-3xl text-center md:text-4xl font-bold text-white mb-3">
+    <section className="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-20">
+      <div className="text-center mb-14">
+        <p className="eyebrow">02 — Skills</p>
+        <div className="text-4xl mt-4 text-center md:text-5xl font-black tracking-tight text-white">
           <ScrollFloat
             animationDuration={1}
             ease="back.inOut(2)"
@@ -75,7 +71,7 @@ const Skills = () => {
             Technical Skills
           </ScrollFloat>
         </div>
-        <p className="text-white/70 text-sm md:text-base">
+        <p className="text-zinc-500 text-sm md:text-base mt-4">
           Technologies and competencies I work with
         </p>
       </div>
@@ -98,17 +94,15 @@ const Skills = () => {
             return (
               <div
                 key={index}
-                className="group rounded-2xl border border-white/10 bg-gray-900/60 p-6 backdrop-blur
-                       transition-all duration-300 hover:-translate-y-2 hover:border-white/30 hover:shadow-xl hover:shadow-indigo-500/10"
+                className="group rounded-2xl border border-white/10 bg-zinc-900/70 p-6
+                       transition-all duration-300 hover:-translate-y-2 hover:border-accent/30 hover:shadow-lg hover:shadow-black/40"
               >
                 {/* Category Header */}
                 <div className="flex items-center gap-3 mb-4">
-                  <div
-                    className={`p-2 rounded-lg bg-gradient-to-br ${category.color}`}
-                  >
-                    <Icon className="w-5 h-5 text-white" />
+                  <div className="p-2.5 rounded-lg bg-white/5 border border-white/10 text-accent">
+                    <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white">
+                  <h3 className="text-lg font-semibold text-white">
                     {category.title}
                   </h3>
                 </div>
@@ -191,7 +185,7 @@ const Skills = () => {
 
                       if (name.includes("tailwind")) {
                         return (
-                          <div className="w-6 h-6 flex items-center justify-center bg-gradient-to-br from-sky-400 to-cyan-400 rounded text-white text-xs font-semibold">
+                          <div className="w-6 h-6 flex items-center justify-center bg-sky-400 text-zinc-950 rounded text-xs font-semibold">
                             TW
                           </div>
                         );
@@ -199,7 +193,7 @@ const Skills = () => {
 
                       if (name.includes("python")) {
                         return (
-                          <div className="w-6 h-6 flex items-center justify-center rounded bg-gradient-to-br from-blue-500 to-yellow-300 text-white text-xs font-semibold">
+                          <div className="w-6 h-6 flex items-center justify-center rounded bg-yellow-400 text-zinc-950 text-xs font-semibold">
                             Py
                           </div>
                         );
@@ -276,7 +270,7 @@ const Skills = () => {
                     return (
                       <div
                         key={skillIndex}
-                        className="flex items-center gap-3 px-3 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-white/90 text-sm max-w-[180px] min-w-0"
+                        className="flex items-center gap-2 px-2.5 py-1.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-md text-zinc-300 text-xs max-w-[160px] min-w-0"
                       >
                         <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center overflow-hidden">
                           {getIcon(lower)}

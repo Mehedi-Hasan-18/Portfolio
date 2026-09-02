@@ -4,8 +4,6 @@ import Footer from "./Home/Footer";
 import { Outlet } from "react-router-dom";
 
 import Chatbot from "./Chatbot";
-// import SplashCursor from "./SplashCursor";
-import LightRays from "./LightRays";
 
 const Main = () => {
   return (

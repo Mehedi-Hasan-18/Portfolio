@@ -30,7 +30,7 @@ const videos = [
 
 const VideoCard = ({ video, featured = false }) => (
   <article
-    className={`group relative min-w-0 overflow-hidden rounded-[1.4rem] border border-white/10 bg-gray-900/80 shadow-xl shadow-black/20 ${video.className}`}
+    className={`group relative min-w-0 overflow-hidden rounded-[1.4rem] border border-white/10 bg-zinc-900/80 shadow-xl shadow-black/20 ${video.className}`}
   >
     <div className="relative aspect-video h-full min-h-[190px] w-full overflow-hidden bg-gray-950 lg:min-h-0 lg:aspect-auto">
       <iframe
@@ -57,29 +57,27 @@ const YouTubeShowcase = ({ channelUrl }) => {
       id="youtube"
       className="relative flex overflow-hidden py-16 lg:h-[calc(100svh-4rem)] lg:min-h-[560px] lg:items-center lg:py-6"
     >
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/10 blur-3xl" />
-
       <div className="relative mx-auto w-full max-w-7xl px-6 md:px-10 lg:h-full">
         <div className="grid gap-10 lg:h-full lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
           <div className="lg:pb-2">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-500/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.24em] text-blue-400">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.24em] text-accent">
               <Youtube className="h-4 w-4" />
               On YouTube
             </div>
-            <h2 className="max-w-lg text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl">
+            <h2 className="max-w-lg text-4xl font-black leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl">
               Beyond code.
-              <span className="block bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="block text-accent">
                 Real guidance.
               </span>
             </h2>
-            <p className="mt-5 max-w-md text-sm leading-7 text-gray-400 md:text-base">
+            <p className="mt-5 max-w-md text-sm leading-7 text-zinc-400 md:text-base">
               Honest videos about studying abroad, student visas, living costs,
               and the decisions that shape an international student journey.
             </p>
-            <ul className="mt-6 grid grid-cols-2 gap-x-5 gap-y-3 text-sm text-gray-300 sm:max-w-md">
+            <ul className="mt-6 grid grid-cols-2 gap-x-5 gap-y-3 text-sm text-zinc-300 sm:max-w-md">
               {["Student stories", "Visa updates", "Living costs", "Study guides"].map((item) => (
                 <li key={item} className="flex items-center gap-2">
-                  <ArrowUpRight className="h-4 w-4 shrink-0 text-blue-400" />
+                  <ArrowUpRight className="h-4 w-4 shrink-0 text-accent" />
                   {item}
                 </li>
               ))}
@@ -88,7 +86,7 @@ const YouTubeShowcase = ({ channelUrl }) => {
               href={channelUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-7 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-950/30 transition hover:from-blue-500 hover:to-purple-500"
+              className="mt-7 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-zinc-950 transition hover:bg-accent"
             >
               See all videos
               <ArrowUpRight className="h-4 w-4" />
