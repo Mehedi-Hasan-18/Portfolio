@@ -1,63 +1,226 @@
-import React from "react";
-import { Code, Server, Database, Wrench, Zap } from "lucide-react";
-import reactLogo from "../assets/react.svg";
-import githubIcon from "../assets/github-white-icon.webp";
+import React, { useRef, useState } from "react";
+import {
+  Boxes,
+  Braces,
+  Code2,
+  Database,
+  Gauge,
+  GitPullRequest,
+  KeyRound,
+  Layers,
+  Link2,
+  MonitorSmartphone,
+  Network,
+  RefreshCw,
+  Rocket,
+  ShieldCheck,
+  Sparkles,
+  SquareTerminal,
+  UsersRound,
+} from "lucide-react";
+import {
+  SiClaude,
+  SiCss,
+  SiDaisyui,
+  SiDjango,
+  SiDocker,
+  SiFastapi,
+  SiFirebase,
+  SiGithub,
+  SiGithubactions,
+  SiGithubcopilot,
+  SiHtml5,
+  SiJavascript,
+  SiNetlify,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiOpenai,
+  SiPostgresql,
+  SiPostman,
+  SiPython,
+  SiReact,
+  SiRedis,
+  SiRedux,
+  SiSupabase,
+  SiSwagger,
+  SiTailwindcss,
+  SiTypescript,
+  SiVercel,
+  SiVitest,
+} from "react-icons/si";
 import AnimatedContent from "./AnimatedContent";
 import ScrollFloat from "./ScrollFloat";
 
+const ZustandMark = ({ className = "" }) => (
+  <span className={`font-mono text-[10px] font-bold leading-none ${className}`}>
+    Z
+  </span>
+);
+
+const skillCategories = [
+  {
+    title: "Languages",
+    icon: Code2,
+    blurb: "The languages I use to build products and query data across the stack.",
+    skills: [
+      { name: "Python", Icon: SiPython },
+      { name: "TypeScript", Icon: SiTypescript },
+      { name: "JavaScript", detail: "ES6+", Icon: SiJavascript },
+      { name: "SQL", Icon: Database },
+      { name: "HTML", Icon: SiHtml5 },
+      { name: "CSS", Icon: SiCss },
+    ],
+  },
+  {
+    title: "Frontend",
+    icon: MonitorSmartphone,
+    blurb: "Interfaces, state, and styling for fast, responsive product experiences.",
+    skills: [
+      { name: "React.js", Icon: SiReact },
+      { name: "Next.js", Icon: SiNextdotjs },
+      { name: "Tailwind CSS", Icon: SiTailwindcss },
+      { name: "Zustand", Icon: ZustandMark },
+      { name: "Redux Toolkit", Icon: SiRedux },
+      { name: "DaisyUI", Icon: SiDaisyui },
+    ],
+  },
+  {
+    title: "Backend & Data",
+    icon: Database,
+    blurb: "APIs, schemas, and data layers designed to stay reliable as they scale.",
+    skills: [
+      {
+        name: "Supabase",
+        detail: "Auth · Postgres · Realtime · SQL Migrations",
+        Icon: SiSupabase,
+      },
+      {
+        name: "PostgreSQL",
+        detail: "Schema Design · Indexing · Query Optimization",
+        Icon: SiPostgresql,
+      },
+      {
+        name: "Row Level Security (RLS)",
+        detail: "Policies",
+        Icon: ShieldCheck,
+      },
+      { name: "Redis", Icon: SiRedis },
+      { name: "Django", Icon: SiDjango },
+      { name: "Node.js", detail: "Basics", Icon: SiNodedotjs },
+      { name: "Firebase", Icon: SiFirebase },
+    ],
+  },
+  {
+    title: "Auth & Security",
+    icon: ShieldCheck,
+    blurb: "Safe sessions, permissions, and trusted-device flows by default.",
+    skills: [
+      {
+        name: "Supabase Auth",
+        detail: "Anonymous Sessions",
+        Icon: SiSupabase,
+      },
+      { name: "JWT Authentication", Icon: KeyRound },
+      { name: "Role-Based Access Control", Icon: UsersRound },
+      {
+        name: "Secure Pairing and Revocation Flows",
+        Icon: Link2,
+      },
+    ],
+  },
+  {
+    title: "APIs",
+    icon: Network,
+    blurb: "Contract-first APIs that are documented, predictable, and easy to consume.",
+    skills: [
+      { name: "FastAPI", Icon: SiFastapi },
+      { name: "Django REST Framework", Icon: SiDjango },
+      { name: "RESTful API Design", Icon: Braces },
+      { name: "Swagger/OpenAPI", Icon: SiSwagger },
+      { name: "Postman", Icon: SiPostman },
+    ],
+  },
+  {
+    title: "Workflow & Testing",
+    icon: GitPullRequest,
+    blurb: "Shipping with version control, automation, and tests that keep quality high.",
+    skills: [
+      { name: "Git/GitHub", detail: "PRs · Code Reviews", Icon: SiGithub },
+      { name: "CI/CD", detail: "GitHub Actions", Icon: SiGithubactions },
+      { name: "Vitest", detail: "Unit Testing", Icon: SiVitest },
+      { name: "Docker", detail: "Basics", Icon: SiDocker },
+      { name: "Vercel", Icon: SiVercel },
+      { name: "Netlify", Icon: SiNetlify },
+    ],
+  },
+  {
+    title: "Core Competencies",
+    icon: Layers,
+    blurb: "How I approach architecture, performance, and delivery end to end.",
+    skills: [
+      { name: "Full-Stack Development", Icon: Layers },
+      { name: "API Design", Icon: Braces },
+      { name: "Scalable Architecture", Icon: Boxes },
+      { name: "Database Optimization", Icon: Gauge },
+      { name: "Performance Tuning", Icon: Rocket },
+      { name: "Agile Development", Icon: RefreshCw },
+    ],
+  },
+  {
+    title: "AI-Assisted Development",
+    icon: Sparkles,
+    blurb: "AI tools I use to move faster without sacrificing review or quality.",
+    skills: [
+      { name: "Claude", Icon: SiClaude },
+      { name: "Codex", Icon: SiOpenai },
+      { name: "GitHub Copilot", Icon: SiGithubcopilot },
+      { name: "OpenCode", Icon: SquareTerminal },
+    ],
+  },
+];
+
+const pad = (index) => String(index + 1).padStart(2, "0");
+
 const Skills = () => {
-  const skillCategories = [
-    {
-      title: "Frontend",
-      icon: Code,
-      skills: [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "React.js",
-        "Tailwind CSS",
-        "DaisyUI",
-      ],
-    },
-    {
-      title: "Backend",
-      icon: Server,
-      skills: ["Python", "Django", "Django REST Framework", "Node.js (basic)"],
-    },
-    {
-      title: "Databases",
-      icon: Database,
-      skills: ["PostgreSQL", "Firebase", "Supabase"],
-    },
-    {
-      title: "DevOps & Tools",
-      icon: Wrench,
-      skills: [
-        "Git/GitHub",
-        "Vercel",
-        "Netlify",
-        "CI/CD",
-        "JWT Authentication",
-        "REST APIs",
-      ],
-    },
-    {
-      title: "Core Competencies",
-      icon: Zap,
-      skills: [
-        "Full-Stack Development",
-        "API Design",
-        "Scalable Architecture",
-        "Database Optimization",
-        "Performance Tuning",
-        "Agile Development",
-        "Unit Testing",
-      ],
-    },
-  ];
+  const [activeIndex, setActiveIndex] = useState(0);
+  const railRef = useRef(null);
+  const active = skillCategories[activeIndex];
+  const totalSkills = skillCategories.reduce(
+    (count, category) => count + category.skills.length,
+    0,
+  );
+
+  // Move the row so the selected tab sits at the left edge of the rail
+  // (fully shifted instead of a partial nudge).
+  const selectCategory = (index) => (event) => {
+    setActiveIndex(index);
+
+    const rail = railRef.current;
+    if (!rail || rail.scrollWidth <= rail.clientWidth) return;
+
+    const tab = event.currentTarget;
+    const scrollBehavior = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches
+      ? "auto"
+      : "smooth";
+
+    const railRect = rail.getBoundingClientRect();
+    const tabRect = tab.getBoundingClientRect();
+    const tabLeft = tabRect.left - railRect.left + rail.scrollLeft;
+    const maxScroll = rail.scrollWidth - rail.clientWidth;
+
+    rail.scrollTo({
+      left: Math.max(0, Math.min(tabLeft, maxScroll)),
+      behavior: scrollBehavior,
+    });
+  };
 
   return (
-    <section className="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-20">
+    <section
+      id="skills"
+      className="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-20"
+    >
       <div className="text-center mb-14">
         <p className="eyebrow">02 — Skills</p>
         <div className="text-4xl mt-4 text-center md:text-5xl font-black tracking-tight text-white">
@@ -72,7 +235,8 @@ const Skills = () => {
           </ScrollFloat>
         </div>
         <p className="text-zinc-500 text-sm md:text-base mt-4">
-          Technologies and competencies I work with
+          {totalSkills} tools and competencies across {skillCategories.length}{" "}
+          domains
         </p>
       </div>
 
@@ -88,203 +252,164 @@ const Skills = () => {
         threshold={0.1}
         delay={0}
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((category, index) => {
-            const Icon = category.icon;
-            return (
+        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/60">
+          {/* Decorative grid + glow */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 opacity-40"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.08) 1px, transparent 0)",
+              backgroundSize: "22px 22px",
+            }}
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-32 -right-16 h-72 w-72 rounded-full bg-accent/10 blur-3xl"
+          />
+
+          <div className="relative grid lg:grid-cols-[290px_minmax(0,1fr)]">
+            {/* Domain rail */}
+            <div className="relative min-w-0 border-b border-white/10 p-4 lg:border-b-0 lg:border-r lg:p-5">
+              <p className="mb-3 hidden px-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-zinc-600 lg:block">
+                Explore the stack
+              </p>
+
               <div
-                key={index}
-                className="group rounded-2xl border border-white/10 bg-zinc-900/70 p-6
-                       transition-all duration-300 hover:-translate-y-2 hover:border-accent/30 hover:shadow-lg hover:shadow-black/40"
+                ref={railRef}
+                role="group"
+                aria-label="Skill categories"
+                className="flex w-full min-w-0 gap-2 overflow-x-auto overscroll-x-contain pb-1 [-ms-overflow-style:none] [scrollbar-width:none] lg:flex-col lg:overflow-visible lg:pb-0 [&::-webkit-scrollbar]:hidden"
               >
-                {/* Category Header */}
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2.5 rounded-lg bg-white/5 border border-white/10 text-accent">
-                    <Icon className="w-5 h-5" />
+                {skillCategories.map((category, index) => {
+                  const Icon = category.icon;
+                  const isActive = index === activeIndex;
+
+                  return (
+                    <button
+                      key={category.title}
+                      type="button"
+                      aria-pressed={isActive}
+                      onClick={selectCategory(index)}
+                      className={`group flex shrink-0 items-center gap-2.5 rounded-xl border px-3 py-2.5 text-left transition-all duration-200 lg:gap-3 lg:px-3.5 lg:py-3 ${
+                        isActive
+                          ? "border-accent/30 bg-accent/[0.08] text-white"
+                          : "border-transparent text-zinc-400 hover:border-white/10 hover:bg-white/[0.04] hover:text-zinc-100"
+                      }`}
+                    >
+                      <span
+                        className={`hidden w-5 font-mono text-[10px] lg:inline ${
+                          isActive ? "text-accent" : "text-zinc-600"
+                        }`}
+                      >
+                        {pad(index)}
+                      </span>
+                      <Icon
+                        className={`h-4 w-4 shrink-0 ${
+                          isActive ? "text-accent" : "text-zinc-500"
+                        }`}
+                      />
+                      <span className="flex-1 whitespace-nowrap text-[13px] font-medium lg:text-sm">
+                        {category.title}
+                      </span>
+                      <span
+                        className={`hidden rounded-md px-1.5 py-0.5 text-[10px] font-semibold lg:inline ${
+                          isActive
+                            ? "bg-accent/15 text-accent"
+                            : "bg-white/5 text-zinc-600"
+                        }`}
+                      >
+                        {category.skills.length}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Fade that hints there are more domains to scroll to */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-zinc-900/95 to-transparent lg:hidden"
+              />
+
+              <div className="mt-6 hidden rounded-xl border border-white/10 bg-white/[0.02] p-4 lg:block">
+                <p className="text-3xl font-black leading-none text-white">
+                  {totalSkills}
+                </p>
+                <p className="mt-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-500">
+                  skills · {skillCategories.length} domains
+                </p>
+                <div className="mt-3 h-px bg-white/10" />
+                <p className="mt-3 text-xs leading-relaxed text-zinc-500">
+                  Backend-first and product-minded. Always adding something new.
+                </p>
+              </div>
+            </div>
+
+            {/* Active domain */}
+            <div className="relative min-w-0 min-h-[420px] p-5 sm:p-8 lg:p-10">
+              <div
+                key={activeIndex}
+                aria-live="polite"
+                className="skill-panel-enter"
+              >
+                <div className="flex items-start justify-between gap-6">
+                  <div className="min-w-0">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent/80">
+                      Domain {pad(activeIndex)}
+                    </p>
+                    <h3 className="mt-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                      {active.title}
+                    </h3>
+                    <p className="mt-2 max-w-lg text-sm leading-relaxed text-zinc-500">
+                      {active.blurb}
+                    </p>
                   </div>
-                  <h3 className="text-lg font-semibold text-white">
-                    {category.title}
-                  </h3>
+                  <span
+                    aria-hidden="true"
+                    className="hidden select-none text-[64px] font-black leading-none text-white/[0.04] sm:block"
+                  >
+                    {pad(activeIndex)}
+                  </span>
                 </div>
 
-                {/* Skills List (logo + name) */}
-                <div className="flex flex-wrap gap-3">
-                  {category.skills.map((skill, skillIndex) => {
-                    const lower = (skill || "").toLowerCase();
-
-                    const getIcon = (name) => {
-                      if (name.includes("react")) {
-                        return (
-                          <img
-                            src={reactLogo}
-                            alt="react"
-                            className="w-6 h-6 object-contain"
-                          />
-                        );
-                      }
-
-                      if (name.includes("github") || name.includes("git")) {
-                        return (
-                          <img
-                            src={githubIcon}
-                            alt="github"
-                            className="w-6 h-6 object-contain rounded"
-                          />
-                        );
-                      }
-
-                      if (name.includes("html")) {
-                        return (
-                          <svg
-                            className="w-6 h-6"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M2 3h20l-1.8 20L12 22l-8.2 1L2 3z"
-                              fill="#E34F26"
-                            />
-                            <path
-                              d="M17.5 7H6.5l.2 2h10.6l-.3 3.5L12 15l-5-.5"
-                              fill="#FFF"
-                              opacity="0.9"
-                            />
-                          </svg>
-                        );
-                      }
-
-                      if (name.includes("css")) {
-                        return (
-                          <svg
-                            className="w-6 h-6"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M2 3h20l-1.8 20L12 22l-8.2 1L2 3z"
-                              fill="#1572B6"
-                            />
-                            <path
-                              d="M7 8h10l-.7 7L12 17l-4.3-1"
-                              fill="#fff"
-                              opacity="0.9"
-                            />
-                          </svg>
-                        );
-                      }
-
-                      if (name.includes("javascript") || name === "js") {
-                        return (
-                          <div className="w-6 h-6 flex items-center justify-center bg-yellow-300 rounded-sm text-black text-xs font-bold">
-                            JS
-                          </div>
-                        );
-                      }
-
-                      if (name.includes("tailwind")) {
-                        return (
-                          <div className="w-6 h-6 flex items-center justify-center bg-sky-400 text-zinc-950 rounded text-xs font-semibold">
-                            TW
-                          </div>
-                        );
-                      }
-
-                      if (name.includes("python")) {
-                        return (
-                          <div className="w-6 h-6 flex items-center justify-center rounded bg-yellow-400 text-zinc-950 text-xs font-semibold">
-                            Py
-                          </div>
-                        );
-                      }
-
-                      if (name.includes("django")) {
-                        return (
-                          <div className="w-6 h-6 flex items-center justify-center rounded bg-green-600 text-white text-xs font-semibold">
-                            Dj
-                          </div>
-                        );
-                      }
-
-                      if (
-                        name.includes("postgres") ||
-                        name.includes("postgresql")
-                      ) {
-                        return (
-                          <div className="w-6 h-6 flex items-center justify-center rounded bg-purple-600 text-white text-xs font-semibold">
-                            PG
-                          </div>
-                        );
-                      }
-
-                      if (name.includes("firebase")) {
-                        return (
-                          <svg
-                            className="w-6 h-6"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M12 2l2.9 6.1L21 9l-4.6 3.3L17 20 12 17.3 7 20l.6-7.7L3 9l6.1-.9L12 2z"
-                              fill="#FFA000"
-                            />
-                          </svg>
-                        );
-                      }
-
-                      if (name.includes("supabase")) {
-                        return (
-                          <div className="w-6 h-6 flex items-center justify-center rounded bg-emerald-500 text-white text-xs font-semibold">
-                            SB
-                          </div>
-                        );
-                      }
-
-                      if (name.includes("vercel")) {
-                        return (
-                          <svg
-                            className="w-6 h-6"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path d="M12 3L2 21h20L12 3z" fill="#000" />
-                          </svg>
-                        );
-                      }
-
-                      if (name.includes("netlify")) {
-                        return (
-                          <div className="w-6 h-6 flex items-center justify-center rounded bg-teal-600 text-white text-xs font-semibold">
-                            N
-                          </div>
-                        );
-                      }
-
-                      // fallback: small code icon
-                      return <Code className="w-5 h-5 text-white/80" />;
-                    };
+                <div className="mt-7 grid gap-2.5 sm:grid-cols-2">
+                  {active.skills.map((skill) => {
+                    const Icon = skill.Icon;
 
                     return (
                       <div
-                        key={skillIndex}
-                        className="flex items-center gap-2 px-2.5 py-1.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-md text-zinc-300 text-xs max-w-[160px] min-w-0"
+                        key={skill.name}
+                        className="group flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/30 hover:bg-white/[0.06]"
                       >
-                        <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center overflow-hidden">
-                          {getIcon(lower)}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="truncate">{skill}</div>
-                        </div>
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-zinc-300 transition-colors duration-300 group-hover:border-accent/20 group-hover:bg-accent/10 group-hover:text-accent">
+                          <Icon className="h-4 w-4" />
+                        </span>
+                        <span className="min-w-0">
+                          <span className="block truncate text-sm font-semibold text-zinc-100">
+                            {skill.name}
+                          </span>
+                          {skill.detail && (
+                            <span className="mt-0.5 block text-[11px] leading-snug text-zinc-500">
+                              {skill.detail}
+                            </span>
+                          )}
+                        </span>
                       </div>
                     );
                   })}
                 </div>
+
+                <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-white/10 pt-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-600">
+                  <span className="text-accent/70">
+                    {active.skills.length} skills
+                  </span>
+                  <span className="h-1 w-1 rounded-full bg-zinc-700" />
+                  <span>Selected domain</span>
+                </div>
               </div>
-            );
-          })}
+            </div>
+          </div>
         </div>
       </AnimatedContent>
     </section>

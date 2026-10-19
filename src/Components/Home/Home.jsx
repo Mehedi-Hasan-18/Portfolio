@@ -29,13 +29,16 @@ const Home = () => {
     }
   };
 
+  // Gmail compose URL — works even when the device has no mail client set up.
+  const gmailCompose = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+    email,
+  )}&su=${encodeURIComponent("Hello Mehedi!")}&body=${encodeURIComponent(
+    "Hi Mehedi,\n\nI came across your portfolio and would love to connect.\n\nBest regards,",
+  )}`;
+
   const handleMailto = (e) => {
     e.preventDefault();
-    const subject = encodeURIComponent("Hello Mehedi!");
-    const body = encodeURIComponent(
-      "Hi Mehedi,\n\nI came across your portfolio and would love to connect.\n\nBest regards,",
-    );
-    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+    window.open(gmailCompose, "_blank", "noopener,noreferrer");
   };
   const socialLinks = {
     linkedin: "https://www.linkedin.com/in/mehedi-hasan-85278b2a0/",
@@ -85,14 +88,14 @@ const Home = () => {
             </p>
 
             <div className="flex flex-wrap gap-4 pt-2">
-              <button
-                onClick={() =>
-                  (window.location.href = "mailto:mdmehedihasanroby@mail.com")
-                }
-                className="px-7 py-3 bg-white text-zinc-950 rounded-lg text-sm font-semibold transition-colors duration-200 hover:bg-accent"
+              <a
+                href={gmailCompose}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-7 py-3 bg-white text-zinc-950 rounded-lg text-sm font-semibold transition-colors duration-200 hover:bg-accent"
               >
                 Get In Touch
-              </button>
+              </a>
               <button
                 onClick={() =>
                   (window.location.href =

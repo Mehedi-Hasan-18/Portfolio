@@ -2,6 +2,7 @@ import React from "react";
 import PhiMart from "../assets/PhiMart.png";
 import DailyNews from "../assets/Daily News.png";
 import tripbooking_public from "../assets/tripbooking_public.png";
+import syncme from "../assets/syncme.png";
 import ProjectCard from "./ProjectCard";
 import NoImg from "../assets/No Photo Img.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,9 +16,10 @@ import AnimatedContent from "./AnimatedContent";
 
 const projects = [
   {
-  id: "tripbooking-public",
-  title: "tripbooking.ai — AI Hotel Booking Platform",
-  image: tripbooking_public,
+    id: "tripbooking-public",
+    title: "tripbooking.ai — AI Hotel Booking Platform",
+    tagline: "AI hotel booking platform built with React & TypeScript",
+    image: tripbooking_public,
   description:
     "Worked as a Frontend Developer at tripbooking.ai, developing and maintaining the company's public-facing hotel booking platform. Built responsive and reusable UI components using React, TypeScript, and Tailwind CSS, integrated REST APIs, optimized performance, and collaborated closely with UI/UX designers and backend engineers to deliver a fast, seamless booking experience across desktop and mobile devices.",
   tags: [
@@ -34,8 +36,30 @@ const projects = [
   codeUrl: "",
 },
   {
+    id: "syncme",
+    title: "SyncMe — Shared Clipboard for All Devices",
+    tagline: "Peer-to-peer clipboard synced live across your devices",
+    image: syncme,
+    description:
+      "A peer-to-peer shared clipboard that syncs text live across your devices. Text travels directly between phones, laptops, and tablets over encrypted WebRTC — never stored on a server.",
+    tags: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase",
+      "WebRTC",
+      "PeerJS",
+      "Yjs",
+      "Vite",
+      "Vercel",
+    ],
+    liveUrl: "https://sync-me-theta.vercel.app",
+    codeUrl: "https://github.com/Mehedi-Hasan-18/SyncMe",
+  },
+  {
     id: "phimart",
     title: "PhiMart",
+    tagline: "Full-stack e-commerce platform with auth & admin dashboard",
     image: PhiMart,
     description:
       "A full-stack e-commerce platform handling product listings, integrating Django REST APIs with React frontend. Developed secure user authentication system and admin dashboard reducing product management time by 70%. Architected responsive design using Tailwind CSS, achieving 95% mobile compatibility score.",
@@ -57,6 +81,7 @@ const projects = [
   {
     id: "dailynews",
     title: "Daily News",
+    tagline: "Scalable news platform with JWT auth and 99.9% uptime",
     image: DailyNews,
     description:
       "Created a scalable news platform handling news listings, integrating Django REST APIs with React frontend. Architected secure JWT-based authentication system and admin endpoints, achieving 99.9% uptime. Reducing response time by 40%. Architected responsive design using Tailwind CSS, achieving 95% mobile compatibility score..",
@@ -125,7 +150,7 @@ const Project = () => {
             My Projects
           </ScrollFloat>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="columns-1 gap-5 md:columns-2">
           {projects.map((p, index) => (
             <ProjectCard
               className="w-full"

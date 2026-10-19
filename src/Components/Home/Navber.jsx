@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Download, Home, UserRound, FolderKanban, Phone, Sparkles } from "lucide-react";
+import { Download, Home, FolderKanban, Phone } from "lucide-react";
 import { useLocation } from "react-router-dom";
 
 const Navber = () => {
@@ -8,31 +8,59 @@ const Navber = () => {
 
   useEffect(() => {
     let lastY = window.scrollY;
-    const handleScroll = () => {
-      const y = window.scrollY;
-      if (y > 80 && y > lastY) {
-        setIsShrunk(true);
-      } else if (y < lastY) {
-        setIsShrunk(false);
-      }
+    let travel = 0;
+    let frame = 0;
+
+    const evaluate = () => {
+      frame = 0;
+      const y = Math.max(0, window.scrollY);
+      const delta = y - lastY;
       lastY = y;
+
+      // Always return to the full pill when near the top.
+      if (y <= 24) {
+        travel = 0;
+        setIsShrunk(false);
+        return;
+      }
+
+      // Ignore tiny jitter from trackpads/momentum so the pill
+      // doesn't rapidly toggle between states while scrolling.
+      if (Math.abs(delta) < 4) return;
+
+      travel += delta;
+
+      if (travel > 32 && y > 96) {
+        setIsShrunk(true);
+        travel = 0;
+      } else if (travel < -32) {
+        setIsShrunk(false);
+        travel = 0;
+      }
     };
+
+    const handleScroll = () => {
+      if (!frame) frame = requestAnimationFrame(evaluate);
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, []);
 
   const navItems = [
     { name: "Home", href: "/", icon: Home },
-    { name: "About", href: "about", icon: UserRound },
     { name: "Projects", href: "https://github.com/Mehedi-Hasan-18?tab=repositories", icon: FolderKanban },
     { name: "Contact", href: "contact", icon: Phone },
   ];
 
   return (
     <>
-      <nav className="sticky top-3 z-50 hidden w-full px-3 transition-all duration-300 md:block">
+      <nav className="sticky top-3 z-50 hidden w-full px-3 md:block">
         <div
-          className={`mx-auto flex items-center justify-between rounded-full border border-white/10 bg-zinc-900/50 backdrop-blur-xl shadow-lg shadow-black/20 transition-all duration-300 ${
+          className={`nav-pill mx-auto flex items-center justify-between rounded-full border border-white/10 bg-zinc-900/50 backdrop-blur-xl shadow-lg shadow-black/20 ${
             isShrunk ? "max-w-2xl h-11 px-3 sm:px-4" : "max-w-3xl h-14 px-4 sm:px-6"
           }`}
         >
@@ -84,7 +112,7 @@ const Navber = () => {
       </nav>
 
       <div className="md:hidden fixed bottom-[max(0.5rem,env(safe-area-inset-bottom))] left-1/2 z-[60] w-[calc(100%-0.75rem)] max-w-[20rem] -translate-x-1/2">
-        <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-zinc-900/95 px-1.5 py-1.5 shadow-2xl shadow-black/40 backdrop-blur-xl">
+        <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-zinc-900/95 px-1.5 py-1.5 shadow-2xl shadow-black/40 backdrop-blur-xl transform-gpu">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = item.href === "/"

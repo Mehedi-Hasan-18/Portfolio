@@ -7,6 +7,7 @@ import DailyNews from "../assets/DailyNews.png";
 import DailyNews1 from "../assets/DailyNews1.png";
 import DailyNews2 from "../assets/DailyNews2.png";
 import tripbooking_public from "../assets/tripbooking_public.png";
+import syncme from "../assets/syncme.png";
 
 const projectsData = {
   phimart: {
@@ -154,6 +155,50 @@ const projectsData = {
     "Responsive UI",
     "REST API Integration",
     "Performance Optimization",
+  ],
+},
+syncme: {
+  id: "syncme",
+  title: "SyncMe — Shared Clipboard for All Devices",
+  image: syncme,
+  shortDescription:
+    "A peer-to-peer shared clipboard that keeps text in sync across phones, laptops, and tablets — with nothing stored on a server.",
+  fullDescription:
+    "SyncMe gives every device you own one shared clipboard. Instead of emailing links to yourself or pasting snippets into a chat, you can type on your phone and watch the text appear instantly on your laptop. Devices connect directly over encrypted WebRTC, so clipboard content always stays peer-to-peer and is never stored on a server. Supabase holds only membership metadata — workspaces, devices, and hashed pairing codes — while Yjs CRDTs merge simultaneous edits instead of overwriting them. Pairing is secured with short-lived, single-use QR codes approved from a trusted device, and any device can be revoked instantly.",
+  technologies: [
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Vite",
+    "Supabase",
+    "PostgreSQL",
+    "Row Level Security",
+    "Supabase Auth",
+    "Realtime",
+    "WebRTC",
+    "PeerJS",
+    "Yjs",
+    "Vitest",
+    "GitHub Actions",
+    "Vercel",
+  ],
+  features: [
+    "Real-time shared clipboard synced peer-to-peer over encrypted WebRTC.",
+    "Yjs CRDT text merging so simultaneous edits combine instead of overwriting.",
+    "Private workspaces with QR-code device pairing and trusted-device approval.",
+    "Short-lived, single-use pairing codes with per-device revocation.",
+    "Zero clipboard content on servers — Supabase stores only membership metadata.",
+    "Supabase anonymous auth, Postgres, RLS, and Realtime for workspace management.",
+    "Responsive Vite + React + TypeScript + Tailwind SPA deployed on Vercel.",
+    "Vitest suite covering sync, pairing, and the transfer protocol.",
+  ],
+  images: [syncme],
+  liveUrl: "https://sync-me-theta.vercel.app",
+  codeUrl: "https://github.com/Mehedi-Hasan-18/SyncMe",
+  highlights: [
+    "Peer-to-Peer Sync",
+    "Secure Device Pairing",
+    "Zero Server Content",
   ],
 },
 };
