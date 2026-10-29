@@ -1,19 +1,29 @@
-import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import PhiMart from "../assets/PhiMart.png";
-import PhiMart1 from "../assets/PhiMart1.png";
-import PhiMart2 from "../assets/PhiMart2.png";
-import DailyNews from "../assets/DailyNews.png";
-import DailyNews1 from "../assets/DailyNews1.png";
-import DailyNews2 from "../assets/DailyNews2.png";
-import tripbooking_public from "../assets/tripbooking_public.png";
+import { Link, useParams } from "react-router-dom";
+import PhiMart from "../assets/PhiMart.webp";
+import PhiMart1 from "../assets/PhiMart1.webp";
+import PhiMart2 from "../assets/PhiMart2.webp";
+import DailyNews from "../assets/DailyNews.webp";
+import DailyNews1 from "../assets/DailyNews1.webp";
+import DailyNews2 from "../assets/DailyNews2.webp";
+import tripbooking_public from "../assets/tripbooking_public.webp";
 import syncme from "../assets/syncme.png";
+import Seo from "./Seo";
+import { BUILD_DATE, PAGE_SEO } from "../data/site";
 
 const projectsData = {
   phimart: {
     id: "phimart",
     title: "PhiMart",
+    summary:
+      "PhiMart is an e-commerce platform for online shoppers, built by Mehedi Hasan with a React frontend and Django REST APIs. It brings product listings together with JWT-based authentication and an admin dashboard for product management. Its responsive interface uses Tailwind CSS and connects frontend shopping features to backend services.",
+    problem:
+      "The project brings product listings, user authentication, and product management together in a responsive e-commerce application.",
+    role:
+      "Mehedi Hasan developed the React frontend, integrated Django REST APIs, implemented JWT authentication, and built the admin dashboard.",
+    outcome:
+      "The existing project description reports a 70% reduction in product-management time and a 95% mobile compatibility score.",
     image: PhiMart,
+    imageSizes: [[1909, 819], [1917, 876], [1906, 873]],
     shortDescription:
       "A full-stack e-commerce platform handling product listings, integrating Django REST APIs with React frontend.",
     fullDescription:
@@ -53,7 +63,16 @@ const projectsData = {
   dailynews: {
     id: "dailynews",
     title: "Daily News",
+    summary:
+      "Daily News is a responsive news platform for readers, created by Mehedi Hasan with a React frontend and Django REST APIs. It combines news listings with JWT-based authentication and admin endpoints for content management. The project demonstrates connecting frontend features to backend APIs and organizing a mobile-first reading experience with Tailwind CSS.",
+    problem:
+      "The project brings news listings, authentication, and content-management endpoints together in a responsive application.",
+    role:
+      "Mehedi Hasan created the platform and worked on its React frontend, API integration, authentication, and responsive presentation.",
+    outcome:
+      "The existing project description reports 99.9% uptime, a 40% response-time reduction, and a 95% mobile compatibility score.",
     image: DailyNews,
+    imageSizes: [[1908, 862], [1908, 874], [1910, 876]],
     shortDescription:
       "Created a scalable news platform handling news listings, integrating Django REST APIs with React frontend.",
     fullDescription:
@@ -123,7 +142,17 @@ const projectsData = {
   "tripbooking-public": {
   id: "tripbooking-public",
   title: "tripbooking.ai — AI Hotel Booking Platform",
+  summary:
+    "tripbooking.ai is a public hotel-booking platform for people planning hotel stays. Mehedi Hasan contributed as a Frontend Developer, building responsive and reusable interfaces with React, TypeScript, and Tailwind CSS. His work included REST API integration, performance optimization, and collaboration with designers and backend engineers across desktop and mobile experiences.",
+  problem:
+    "The public booking experience needs responsive interfaces that present hotel and booking information while connecting to REST APIs.",
+  role:
+    "Mehedi Hasan worked as a Frontend Developer, building and maintaining reusable UI components, integrating REST APIs, and optimizing performance.",
+  outcome:
+    "The project description documents responsive interface development, REST API integration, and performance optimization; it provides no measured outcome.",
+  // TODO: Add a verified project outcome when a measured result is available.
   image: tripbooking_public,
+  imageSizes: [[1902, 887]],
   shortDescription:
     "Contributed to the development of a production AI-powered hotel booking platform as a Frontend Developer.",
   fullDescription:
@@ -160,7 +189,16 @@ const projectsData = {
 syncme: {
   id: "syncme",
   title: "SyncMe — Shared Clipboard for All Devices",
+  summary:
+    "SyncMe is a shared clipboard for people who want to move text between their own phones, laptops, and tablets. Mehedi Hasan built it with React, TypeScript, WebRTC, Supabase, and Yjs. Devices exchange clipboard content peer-to-peer, while Supabase stores workspace and device membership metadata rather than clipboard content.",
+  problem:
+    "SyncMe addresses the need to share clipboard text across a person's devices without storing that content on a server.",
+  role:
+    "Mehedi Hasan built the application using React and TypeScript, with WebRTC for peer-to-peer transfers, Yjs for collaborative text merging, and Supabase for workspace management.",
+  outcome:
+    "The project is designed so clipboard text travels peer-to-peer and is not stored on a server; no measured performance results are listed.",
   image: syncme,
+  imageSizes: [[1918, 887]],
   shortDescription:
     "A peer-to-peer shared clipboard that keeps text in sync across phones, laptops, and tablets — with nothing stored on a server.",
   fullDescription:
@@ -205,59 +243,70 @@ syncme: {
 
 const ProjectDetails = () => {
   const { projectId } = useParams();
-  const navigate = useNavigate();
   const project = projectsData[projectId];
 
   if (!project) {
     return (
-      <div className="min-h-screen pb-5 flex items-center justify-center">
+      <main className="min-h-screen pb-5 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-3xl font-bold text-white mb-4">
             Project Not Found
           </h1>
-          <button
-            onClick={() => navigate("/")}
-            className="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-2 rounded-lg transition"
+          <Link
+            to="/"
+            className="inline-block bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-2 rounded-lg transition"
           >
-            Back to Home
-          </button>
+            Return to Mehedi Hasan's home page
+          </Link>
         </div>
-      </div>
+      </main>
     );
   }
 
   return (
-    <div className="min-h-screen pb-5 bg-gray-950">
-      {/* Header Section */}
-      <div className="pt-20 pb-10">
-        <button
-          onClick={() => navigate("/")}
-          className="ml-6 md:ml-10 mb-6 flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition"
-        >
-          <span>←</span> Back to Projects
-        </button>
-      </div>
-
-      {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-6 md:px-4">
-        {/* Title Section */}
-        <div className="mb-12">
+    <>
+    <Seo page={PAGE_SEO.projects[project.id]} type="article" />
+    <main className="min-h-screen pb-5 bg-gray-950">
+      <article className="max-w-6xl mx-auto px-6 pt-12 md:px-4">
+        <nav aria-label="Breadcrumb" className="mb-8 text-sm text-indigo-300">
+          <Link to="/" className="hover:text-white">Home</Link>
+          <span aria-hidden="true"> / </span>
+          <Link to="/#work" className="hover:text-white">Projects</Link>
+          <span aria-hidden="true"> / </span>
+          <span aria-current="page">{project.title}</span>
+        </nav>
+        <header className="mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             {project.title}
           </h1>
-          <p className="text-white/70 text-lg max-w-3xl">
-            {project.shortDescription}
+          <p className="mb-4 text-sm text-indigo-300">
+            Mehedi Hasan · Frontend Software Engineer
           </p>
-        </div>
+          <p className="text-white/80 text-lg leading-relaxed max-w-3xl">
+            {project.summary}
+          </p>
+        </header>
 
-        {/* Hero Image */}
-        <div className="mb-12 rounded-2xl overflow-hidden border border-white/10">
+        <figure className="mb-12 overflow-hidden rounded-2xl border border-white/10">
           <img
             src={project.image}
-            alt={project.title}
+            alt={`${project.title} project preview`}
+            width={project.imageSizes[0][0]}
+            height={project.imageSizes[0][1]}
+            fetchPriority="high"
             className="w-full h-auto object-cover"
           />
-        </div>
+        </figure>
+
+        <section className="mb-12">
+          <h2 className="mb-4 text-2xl font-bold text-white">Problem</h2>
+          <p className="text-lg leading-relaxed text-white/80">{project.problem}</p>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="mb-4 text-2xl font-bold text-white">What Mehedi built</h2>
+          <p className="text-lg leading-relaxed text-white/80">{project.role}</p>
+        </section>
 
         {/* Highlights */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
@@ -274,34 +323,39 @@ const ProjectDetails = () => {
         </div>
 
         {/* Full Description */}
-        <div className="mb-12">
+        <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-4">
             About This Project
           </h2>
           <p className="text-white/80 text-lg leading-relaxed">
             {project.fullDescription}
           </p>
-        </div>
+        </section>
 
         {/* Technologies Used */}
-        <div className="mb-12">
+        <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-6">
             Technologies Used
           </h2>
-          <div className="flex flex-wrap gap-3">
+          <ul className="flex flex-wrap gap-3">
             {project.technologies.map((tech) => (
-              <span
+              <li
                 key={tech}
                 className="bg-indigo-500/20 border border-indigo-400/50 text-indigo-300 px-4 py-2 rounded-full text-sm md:text-base hover:bg-indigo-500/30 transition"
               >
                 {tech}
-              </span>
+              </li>
             ))}
-          </div>
-        </div>
+          </ul>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="mb-4 text-2xl font-bold text-white">Result</h2>
+          <p className="text-lg leading-relaxed text-white/80">{project.outcome}</p>
+        </section>
 
         {/* Key Features */}
-        <div className="mb-12">
+        <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-6">Key Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {project.features.map((feature, index) => (
@@ -320,10 +374,10 @@ const ProjectDetails = () => {
               </div>
             ))}
           </div>
-        </div>
+        </section>
 
         {/* Project Gallery */}
-        <div className="mb-12">
+        <section className="mb-12">
           <h2 className="text-2xl font-bold text-white mb-6">
             Project Gallery
           </h2>
@@ -335,35 +389,47 @@ const ProjectDetails = () => {
               >
                 <img
                   src={img}
-                  alt={`${project.title} ${index + 1}`}
+                  alt={`${project.title} project screenshot ${index + 1}`}
+                  width={project.imageSizes[index][0]}
+                  height={project.imageSizes[index][1]}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover hover:scale-105 transition duration-300"
                 />
               </div>
             ))}
           </div>
-        </div>
+        </section>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 mb-20">
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-3 rounded-lg text-center transition transform hover:scale-105"
-          >
-            View Live Project
-          </a>
-          <a
-            href={project.codeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 rounded-lg text-center border border-white/20 transition transform hover:scale-105"
-          >
-            View Source Code
-          </a>
-        </div>
-      </div>
-    </div>
+        <nav aria-label="Project links" className="mb-8 flex flex-col gap-4 sm:flex-row">
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 rounded-lg bg-indigo-500 py-3 text-center font-semibold text-white transition hover:bg-indigo-600"
+            >
+              Visit {project.title} live website
+            </a>
+          )}
+          {project.codeUrl && (
+            <a
+              href={project.codeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 rounded-lg border border-white/20 bg-gray-800 py-3 text-center font-semibold text-white transition hover:bg-gray-700"
+            >
+              View {project.title} source code on GitHub
+            </a>
+          )}
+        </nav>
+        <p className="mb-20 text-sm text-white/60">
+          Last updated: <time dateTime={BUILD_DATE}>{BUILD_DATE}</time>
+        </p>
+      </article>
+    </main>
+    </>
   );
 };
 

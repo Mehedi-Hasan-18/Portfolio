@@ -1,5 +1,4 @@
-// import image from "../../assets/Profile Photo.png";
-import image from "../../assets/heroPhotonew_photo.png";
+import image from "../../assets/heroPhotonew_photo.webp";
 import codeforce from "../../assets/codeforces_logo.webp";
 import codechef from "../../assets/CodeChef_Logo.png";
 import Project from "../Project";
@@ -12,6 +11,8 @@ import ScrambleText from "../ScrambleText";
 import AnimatedContent from "../AnimatedContent";
 import ScrollFloat from "../ScrollFloat";
 import YouTubeShowcase from "../YouTubeShowcase";
+import Seo from "../Seo";
+import { PAGE_SEO } from "../../data/site";
 
 const Home = () => {
   const [copied, setCopied] = useState("");
@@ -55,19 +56,16 @@ const Home = () => {
   ];
 
   return (
-    <div className="relative text-zinc-100 min-h-screen">
+    <main className="relative text-zinc-100 min-h-screen">
+      <Seo page={PAGE_SEO.home} />
       <div className="max-w-7xl mx-auto px-6 md:px-10 pt-12 md:pt-20 pb-16">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
           {/* Left Side: Text Content */}
           <div className="space-y-7 z-10">
-            <p className="eyebrow">
-              Software Engineer
-            </p>
-            <ScrambleText
-              text="Mehedi Hasan"
-              duration={900}
-              className="block font-black text-5xl tracking-tight text-white md:text-7xl"
-            />
+            <p className="eyebrow">Frontend Software Engineer</p>
+            <h1 className="font-black text-5xl tracking-tight text-white md:text-7xl">
+              Mehedi Hasan
+            </h1>
 
             <div className="min-h-8 text-xl font-bold md:text-2xl">
               <ScrambleText
@@ -80,12 +78,18 @@ const Home = () => {
             </div>
 
             <p className="leading-relaxed max-w-xl text-sm md:text-base text-zinc-400">
-              I'm a problem-solver at heart who loves turning ideas into working
-              systems. Whether it's designing backend infrastructure, building
-              full-stack features, or integrating AI to enhance functionality
-              and efficiency, I focus on creating solutions that are elegant,
-              reliable, and built with purpose.
+              Mehedi Hasan is a frontend-focused software engineer who builds
+              responsive web applications with React, Next.js, and TypeScript.
+              He also works across the stack, connecting interfaces to APIs and
+              building useful product features.
             </p>
+            <ul className="max-w-xl space-y-1 text-sm text-zinc-400">
+              <li><strong className="text-zinc-200">Role:</strong> Frontend Software Engineer</li>
+              <li><strong className="text-zinc-200">Core stack:</strong> React, Next.js, TypeScript, Tailwind CSS</li>
+              <li><strong className="text-zinc-200">Focus:</strong> Responsive web applications and frontend development</li>
+              <li><strong className="text-zinc-200">Location:</strong> Dhaka, Bangladesh</li>
+              <li><strong className="text-zinc-200">Contact:</strong> <a className="underline hover:text-white" href="/contact">Contact Mehedi Hasan</a></li>
+            </ul>
 
             <div className="flex flex-wrap gap-4 pt-2">
               <a
@@ -124,7 +128,11 @@ const Home = () => {
                 <div className="relative w-full h-full bg-zinc-900">
                   <img
                     src={image}
-                    alt="Mehedi Hasan"
+                    alt="Portrait of Mehedi Hasan"
+                    width={896}
+                    height={1184}
+                    fetchPriority="high"
+                    decoding="async"
                     className="absolute inset-0 w-full h-full object-contain block"
                   />
                 </div>
@@ -171,6 +179,10 @@ const Home = () => {
                     src={codechef}
                     className="w-4 h-4 object-contain opacity-80 group-hover:opacity-100"
                     alt="CodeChef"
+                    width={16}
+                    height={16}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </a>
                 <a
@@ -184,6 +196,10 @@ const Home = () => {
                     src={codeforce}
                     className="w-4 h-4 object-contain opacity-80 group-hover:opacity-100"
                     alt="Codeforces"
+                    width={16}
+                    height={16}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </a>
               </div>
@@ -335,7 +351,7 @@ const Home = () => {
           </div>
         </div>
       </AnimatedContent>
-    </div>
+    </main>
   );
 };
 

@@ -1,8 +1,6 @@
-const AnimatedContent = ({ children, className = '', ...props }) => {
+const AnimatedContent = ({ children, className = "" }) => {
   return (
-    <div className={className} {...props}>
-      {children}
-    </div>
+    <div className={className}>{children}</div>
   );
 };
 

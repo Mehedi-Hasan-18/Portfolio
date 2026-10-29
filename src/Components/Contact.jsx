@@ -4,6 +4,8 @@ import fbLogo from "../assets/Facebook_Logo_(2019).png";
 import instaLogo from "../assets/instagram.avif";
 import LinkedInLogo from "../assets/LinkedIn.png";
 import { Coffee } from "lucide-react";
+import Seo from "./Seo";
+import { PAGE_SEO } from "../data/site";
 
 const socials = [
   {
@@ -58,10 +60,15 @@ const Contact = () => {
   };
 
   return (
-    <section className=" text-zinc-100">
+    <>
+    <Seo page={PAGE_SEO.contact} />
+    <main className="text-zinc-100">
+      <article>
       <div className="md:max-w-6xl md:mx-auto md:px-6 md:py-12 m-4">
         <header className="text-center mb-12">
-          <p className="eyebrow">Say Hello</p>
+          <p className="eyebrow">
+            Mehedi Hasan · Frontend Software Engineer
+          </p>
           <h1 className="text-4xl md:text-5xl font-black tracking-tight text-white mt-4">
             Contact
           </h1>
@@ -174,6 +181,10 @@ const Contact = () => {
                         <img
                           src={s.img}
                           alt={`${s.name} logo`}
+                          width={36}
+                          height={36}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-contain"
                         />
                       </div>
@@ -201,7 +212,9 @@ const Contact = () => {
           </p>
         </div>
       </div>
-    </section>
+      </article>
+    </main>
+    </>
   );
 };
 

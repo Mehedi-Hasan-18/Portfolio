@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Download, Home, FolderKanban, Phone } from "lucide-react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navber = () => {
   const location = useLocation();
@@ -52,8 +52,9 @@ const Navber = () => {
 
   const navItems = [
     { name: "Home", href: "/", icon: Home },
-    { name: "Projects", href: "https://github.com/Mehedi-Hasan-18?tab=repositories", icon: FolderKanban },
-    { name: "Contact", href: "contact", icon: Phone },
+    { name: "Projects", href: "/#work", icon: FolderKanban },
+    { name: "About", href: "/about", icon: Home },
+    { name: "Contact", href: "/contact", icon: Phone },
   ];
 
   return (
@@ -66,30 +67,30 @@ const Navber = () => {
         >
           {/* Logo/Brand */}
           <div className="flex-shrink-0">
-            <a
-              href="/"
+            <Link
+              to="/"
               className={`font-display font-bold tracking-tight text-white hover:text-accent transition-all duration-300 ${
                 isShrunk ? "text-lg sm:text-xl" : "text-xl sm:text-2xl"
               }`}
             >
               Mehedi<span className="text-accent">.</span>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="flex items-center gap-1">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   className={`group relative flex items-center rounded-lg text-sm font-medium text-zinc-400 hover:text-white transition-all duration-300 ${
                     isShrunk ? "px-2 py-1 text-xs" : "px-3 py-1.5"
                   }`}
                 >
                   {item.name}
                   <span className="absolute bottom-0 left-3 right-3 h-px bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full"></span>
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -120,9 +121,10 @@ const Navber = () => {
               : location.pathname.includes(item.href);
 
             return (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
+                to={item.href}
+                aria-label={item.name}
                 className={`flex flex-1 items-center justify-center rounded-xl p-1.5 transition-all duration-200 ${
                   isActive
                     ? "bg-accent/10 text-accent shadow-[0_0_0_1px_rgba(201,168,106,0.3)]"
@@ -130,13 +132,14 @@ const Navber = () => {
                 }`}
               >
                 <Icon className="h-5 w-5" />
-              </a>
+              </Link>
             );
           })}
           <a
             href="https://drive.google.com/file/d/1xXeZUpnv1ldzd_Z6kDXDNd-Eg77JSyFV/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Download Mehedi Hasan's resume"
             className="flex flex-1 items-center justify-center rounded-xl p-1.5 text-zinc-400 transition-all duration-200 hover:bg-white/10 hover:text-white"
           >
             <Download className="h-5 w-5" />

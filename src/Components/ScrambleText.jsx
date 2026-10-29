@@ -59,8 +59,9 @@ const ScrambleText = ({
   }, [interval, loop, values.length]);
 
   return (
-    <span className={className} aria-label={values[activeIndex]}>
+    <span className={className}>
       <span aria-hidden="true">{displayText}</span>
+      <span className="sr-only">{values[activeIndex]}</span>
     </span>
   );
 };

@@ -1,42 +1,84 @@
-import React from "react";
-
+import Seo from "./Seo";
+import { PAGE_SEO } from "../data/site";
+import profileImage from "../assets/heroPhotonew_photo.webp";
 
 const About = () => {
   return (
-    <section className="relative py-16 bg-transparent text-gray-200">
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center gap-10 bg-gray-900/80 border border-gray-800 rounded-3xl shadow-2xl p-8 md:p-14">
-          {/* Profile Image */}
-          <div className="flex-shrink-0 mb-8 md:mb-0">
-            <img
-              src="src\assets\heroPhotonew_photo.png"
-              alt="Mehedi Hasan"
-              className="w-40 h-40 md:w-56 md:h-56 object-contain rounded-full border-4 border-blue-600 shadow-lg"
-            />
-          </div>
-          {/* About Content */}
-          <div className="flex-1">
-            <h2 className="text-4xl font-extrabold mb-4 text-white text-center md:text-left">About Me</h2>
-            <p className="text-gray-300 text-lg leading-relaxed mb-4 text-center md:text-left">
-              Hi, I'm <span className="text-white font-semibold">Mehedi Hasan</span>, a passionate <span className="text-blue-400">full-stack web developer</span> and software enthusiast currently studying <span className="text-blue-400">Diploma in Information Technology</span> at University of Dhaka, Bangladesh.
+    <>
+      <Seo page={PAGE_SEO.about} />
+      <main className="relative py-16 bg-transparent text-gray-200">
+        <article className="max-w-4xl mx-auto px-4">
+          <header className="mb-10 text-center">
+            <p className="eyebrow">About Me</p>
+            <h1 className="mt-4 text-4xl font-extrabold text-white">
+              Mehedi Hasan
+            </h1>
+            <p className="mt-3 text-lg text-blue-300">
+              Frontend-focused Software Engineer
             </p>
-            <ul className="list-disc list-inside text-gray-400 mb-6 space-y-2 text-base">
-              <li>Building modern, responsive web applications</li>
-              <li>Solving algorithmic and coding challenges</li>
-              <li>Creating content for aspiring students abroad</li>
-              <li>Always learning and exploring new technologies</li>
-            </ul>
-            <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-              <span className="bg-blue-600/20 text-blue-400 px-4 py-2 rounded-full text-xs font-semibold border border-blue-600/30">JavaScript</span>
-              <span className="bg-blue-600/20 text-blue-400 px-4 py-2 rounded-full text-xs font-semibold border border-blue-600/30">ReactJs</span>
-              <span className="bg-blue-600/20 text-blue-400 px-4 py-2 rounded-full text-xs font-semibold border border-blue-600/30">Python</span>
-              <span className="bg-blue-600/20 text-blue-400 px-4 py-2 rounded-full text-xs font-semibold border border-blue-600/30">Django</span>
-              <span className="bg-blue-600/20 text-blue-400 px-4 py-2 rounded-full text-xs font-semibold border border-blue-600/30">PostgreSQL</span>
+          </header>
+          <div className="flex flex-col items-center gap-10 rounded-3xl border border-gray-800 bg-gray-900/80 p-8 shadow-2xl md:flex-row md:p-14">
+            <img
+              src={profileImage}
+              alt="Portrait of Mehedi Hasan"
+              width={896}
+              height={1184}
+              className="h-40 w-40 flex-shrink-0 rounded-full border-4 border-blue-600 object-contain shadow-lg md:h-56 md:w-56"
+            />
+            <div className="flex-1 space-y-7">
+              <section>
+                <h2 className="mb-2 text-2xl font-bold text-white">
+                  What does Mehedi Hasan do?
+                </h2>
+                <p className="text-base leading-relaxed text-gray-300">
+                  Mehedi Hasan is a software engineer who builds modern,
+                  responsive web applications. His portfolio reflects both
+                  frontend and full-stack work, including React interfaces,
+                  API-connected products, and projects designed to work across
+                  desktop and mobile devices.
+                </p>
+              </section>
+              <section>
+                <h2 className="mb-2 text-2xl font-bold text-white">
+                  Which technologies does Mehedi Hasan use?
+                </h2>
+                <p className="text-base leading-relaxed text-gray-300">
+                  Mehedi's listed technologies include JavaScript, React,
+                  Python, Django, and PostgreSQL. His project work also shows
+                  experience with Tailwind CSS and REST APIs. These tools appear
+                  in his portfolio projects and describe the technologies he
+                  uses to build web applications.
+                </p>
+              </section>
+              <section>
+                <h2 className="mb-2 text-2xl font-bold text-white">
+                  What kind of projects has he built?
+                </h2>
+                <p className="text-base leading-relaxed text-gray-300">
+                  Mehedi Hasan's portfolio includes an e-commerce platform, a
+                  news platform, a hotel-booking frontend, and SyncMe, a shared
+                  clipboard project. The work spans product listings,
+                  authentication, responsive interfaces, API integration, and
+                  peer-to-peer device synchronization.
+                </p>
+              </section>
+              <section>
+                <h2 className="mb-2 text-2xl font-bold text-white">
+                  Where does Mehedi Hasan study?
+                </h2>
+                <p className="text-base leading-relaxed text-gray-300">
+                  Mehedi Hasan is studying for a Diploma in Information
+                  Technology at the University of Dhaka in Bangladesh. Alongside
+                  his studies, he builds web applications, solves algorithmic
+                  and coding challenges, and continues learning about software
+                  development.
+                </p>
+              </section>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </article>
+      </main>
+    </>
   );
 };
 

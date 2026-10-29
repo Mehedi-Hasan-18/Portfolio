@@ -39,7 +39,11 @@ const Education = () => {
           <div className="md:w-1/3 flex items-center justify-center p-0 md:p-8">
             <img
               src={uniImg}
-              alt="University Logo"
+              alt="University of Dhaka logo"
+              width={250}
+              height={250}
+              loading="lazy"
+              decoding="async"
               className="object-contain w-28 h-28 md:w-40 md:h-40 rounded-b-full shadow-md border border-white/15 "
             />
           </div>

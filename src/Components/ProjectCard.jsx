@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
 
 const ProjectCard = ({
@@ -7,12 +7,12 @@ const ProjectCard = ({
   tagline,
   description,
   image,
+  imageSize,
   liveUrl,
   codeUrl,
   projectId,
   index = 0,
 }) => {
-  const navigate = useNavigate();
   const cardRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -34,11 +34,6 @@ const ProjectCard = ({
     return () => observer.disconnect();
   }, []);
 
-  const handleDetailsClick = (e) => {
-    e.stopPropagation();
-    navigate(`/project/${projectId}`);
-  };
-
   return (
     <div
       ref={cardRef}
@@ -56,8 +51,8 @@ const ProjectCard = ({
             alt={title}
             loading="lazy"
             decoding="async"
-            width={840}
-            height={360}
+            width={imageSize[0]}
+            height={imageSize[1]}
             className="block h-auto w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950/50 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -98,14 +93,14 @@ const ProjectCard = ({
               </a>
             )}
             {projectId && (
-              <button
-                type="button"
-                onClick={handleDetailsClick}
+              <Link
+                to={`/project/${projectId}`}
+                aria-label={`Read about ${title}`}
                 className="ml-auto inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3 py-1.5 text-xs font-medium text-zinc-200 transition-colors duration-200 hover:border-accent hover:text-accent active:scale-95"
               >
                 Details
                 <ArrowUpRight className="h-3.5 w-3.5" />
-              </button>
+              </Link>
             )}
           </div>
         </div>

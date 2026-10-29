@@ -11,6 +11,7 @@ import {
   ExternalLink,
   Coffee,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -104,7 +105,13 @@ const Footer = () => {
 {/* Social Links */}
         <div className="border-t border-white/10 pt-8 mb-8">
           <div className="flex flex-col sm:flex-row justify-between items-center">
-            <div className="flex space-x-6 mb-4 sm:mb-0 ">
+    <nav aria-label="Footer navigation" className="mb-5 flex gap-5 text-sm sm:mb-0">
+      <Link className="text-zinc-400 hover:text-white" to="/">Home</Link>
+      <Link className="text-zinc-400 hover:text-white" to="/about">About</Link>
+      <Link className="text-zinc-400 hover:text-white" to="/#work">Projects</Link>
+      <Link className="text-zinc-400 hover:text-white" to="/contact">Contact</Link>
+    </nav>
+    <div className="flex space-x-6 mb-4 sm:mb-0 ">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
@@ -139,18 +146,18 @@ const Footer = () => {
               in Dhaka.
             </span>
             <div className="flex space-x-6 text-sm">
-              <a
-                href="#"
+              <Link
+                to="/about"
                 className="text-zinc-400 hover:text-white transition-colors duration-300"
               >
                 Privacy Policy
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="/#work"
                 className="text-zinc-400 hover:text-white transition-colors duration-300"
               >
                 Terms of Service
-              </a>
+              </Link>
             </div>
           </div>
         </div>

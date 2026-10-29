@@ -82,6 +82,10 @@ const ECA = () => {
                       className="w-full h-full object-contain rounded-md"
                       src={item.emoji}
                       alt=""
+                      width={48}
+                      height={48}
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div className="min-w-0">

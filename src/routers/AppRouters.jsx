@@ -1,23 +1,24 @@
-import React from "react";
+import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "../Components/Home/Home";
 import Main from "../Components/Main";
-import About from "../Components/About";
-import Contact from "../Components/Contact";
-import ProjectDetails from "../Components/ProjectDetails";
+
+const Home = lazy(() => import("../Components/Home/Home"));
+const About = lazy(() => import("../Components/About"));
+const Contact = lazy(() => import("../Components/Contact"));
+const ProjectDetails = lazy(() => import("../Components/ProjectDetails"));
 
 const AppRouters = () => {
   return (
-    <div>
+    <Suspense fallback={<main className="min-h-screen" aria-label="Loading page" />}>
       <Routes>
         <Route element={<Main />}>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="about/" element={<About />}></Route>
-          <Route path="contact/" element={<Contact />}></Route>
-          <Route path="project/:projectId" element={<ProjectDetails />}></Route>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/project/:projectId" element={<ProjectDetails />} />
         </Route>
       </Routes>
-    </div>
+    </Suspense>
   );
 };
 

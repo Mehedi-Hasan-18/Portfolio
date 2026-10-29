@@ -305,6 +305,7 @@ const Skills = () => {
                         {pad(index)}
                       </span>
                       <Icon
+                        aria-hidden="true"
                         className={`h-4 w-4 shrink-0 ${
                           isActive ? "text-accent" : "text-zinc-500"
                         }`}
@@ -383,7 +384,7 @@ const Skills = () => {
                         className="group flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-3.5 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/30 hover:bg-white/[0.06]"
                       >
                         <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-zinc-300 transition-colors duration-300 group-hover:border-accent/20 group-hover:bg-accent/10 group-hover:text-accent">
-                          <Icon className="h-4 w-4" />
+                          <Icon aria-hidden="true" className="h-4 w-4" />
                         </span>
                         <span className="min-w-0">
                           <span className="block truncate text-sm font-semibold text-zinc-100">
