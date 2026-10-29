@@ -1,0 +1,14 @@
+# Mehedi Hasan
+
+> Mehedi Hasan is a frontend-focused software engineer building responsive web applications. This site presents his background, contact information, and software projects.
+
+## Pages
+- [Mehedi Hasan | Frontend Software Engineer (Next.js, React)](https://meheedi-hasan.netlify.app/): Mehedi Hasan is a frontend-focused software engineer building responsive web experiences with React, Next.js and TypeScript. Explore his work and contact him.
+- [About Mehedi Hasan | Frontend Software Engineer](https://meheedi-hasan.netlify.app/about): Learn about Mehedi Hasan, a software engineer and University of Dhaka IT student who builds responsive web apps and solves programming challenges.
+- [Contact Mehedi Hasan | Frontend Software Engineer](https://meheedi-hasan.netlify.app/contact): Contact Mehedi Hasan about frontend engineering, React projects or collaboration. Find his public email, phone number and social profiles here.
+
+## Projects
+- [Daily News | Mehedi Hasan](https://meheedi-hasan.netlify.app/project/dailynews): A news platform with React, Django REST APIs, JWT authentication, and responsive layouts.
+- [PhiMart | Mehedi Hasan](https://meheedi-hasan.netlify.app/project/phimart): An e-commerce platform with React, Django REST APIs, product listings, authentication, and an admin dashboard.
+- [tripbooking.ai | Mehedi Hasan](https://meheedi-hasan.netlify.app/project/tripbooking-public): Frontend development for a public hotel booking platform using React, TypeScript, Tailwind CSS, and REST APIs.
+- [SyncMe | Mehedi Hasan](https://meheedi-hasan.netlify.app/project/syncme): A peer-to-peer shared clipboard using React, TypeScript, WebRTC, Supabase, and Yjs.

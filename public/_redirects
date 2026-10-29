@@ -1,1 +1,7 @@
-/*    /index.html   200
+/about/ /about 301!
+/contact/ /contact 301!
+/project/dailynews/ /project/dailynews 301!
+/project/phimart/ /project/phimart 301!
+/project/tripbooking-public/ /project/tripbooking-public 301!
+/project/syncme/ /project/syncme 301!
+/*/ /:splat 301!

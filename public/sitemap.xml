@@ -2,20 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://meheedi-hasan.netlify.app/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
-    <loc>https://meheedi-hasan.netlify.app/about/</loc>
+    <loc>https://meheedi-hasan.netlify.app/about</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
-    <loc>https://meheedi-hasan.netlify.app/contact/</loc>
-  </url>
-  <url>
-    <loc>https://meheedi-hasan.netlify.app/project/tripbooking-public</loc>
-  </url>
-  <url>
-    <loc>https://meheedi-hasan.netlify.app/project/phimart</loc>
+    <loc>https://meheedi-hasan.netlify.app/contact</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://meheedi-hasan.netlify.app/project/dailynews</loc>
+    <lastmod>2026-10-29</lastmod>
+  </url>
+  <url>
+    <loc>https://meheedi-hasan.netlify.app/project/phimart</loc>
+    <lastmod>2026-10-29</lastmod>
+  </url>
+  <url>
+    <loc>https://meheedi-hasan.netlify.app/project/tripbooking-public</loc>
+    <lastmod>2026-10-29</lastmod>
+  </url>
+  <url>
+    <loc>https://meheedi-hasan.netlify.app/project/syncme</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
 </urlset>
